@@ -15,6 +15,9 @@ export const colors = {
   sec1: "#445215",
   sec2: "#7A930D",
   sec3: "#DEF165",
+  font1 : "#000",
+  font2 : "#fff",
+  font3 : "#bebebe"
 };
 
 

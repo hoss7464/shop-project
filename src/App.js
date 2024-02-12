@@ -7,6 +7,7 @@ import UserProfile from "./Pages/UserProfile";
 import SignIn from "./Pages/SignInPage"
 import SignUp from "./Pages/SignUpPage"
 import ForgetPass from "./Pages/ForgetPassPage";
+import Purchase from "./Pages/PurchasePage";
 
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgetpassword" element={<ForgetPass />} />
+          <Route path="/purchase" element={<Purchase />} />
         </Routes>
       </Router>
     </>
