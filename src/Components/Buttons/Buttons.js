@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { colors } from "../../Core-UI/Theme";
 
+
+//---------------------Nav btn---------------------------
 export const MyLink = styled(Link)`
   display: flex;
   justify-content: center;
@@ -31,3 +33,6 @@ export const LinkText = styled.p`
   font-weight: 600;
   color: ${colors.font1};
 `;
+
+
+

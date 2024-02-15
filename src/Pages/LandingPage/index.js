@@ -1,10 +1,14 @@
 import React from 'react';
+import { LandingContainer } from './LandingElements';
+import HeroSection from './HeroSection';
 
 const LandingPage = () => {
     return (
-        <div>
-            hello landing page
-        </div>
+        <>
+        <LandingContainer>
+          <HeroSection />
+        </LandingContainer>
+        </>
     );
 };
 

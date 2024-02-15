@@ -1,4 +1,5 @@
 import React from "react";
+import "./Navbar.css"
 import { useLocation } from "react-router-dom";
 import {
   ChakraProvider,
@@ -39,8 +40,9 @@ const Navbar = () => {
   const theme = extendTheme({ breakpoints });
 
   return (
-    <ChakraProvider theme={theme}>
-      <Flex
+    <ChakraProvider theme={theme} >
+      <Flex 
+      className="nav"
         justify="center"
         alignItems="center"
         flexDirection={{ sma1: "column", sma2: "row", sma3: "row", lap: "row" }}
@@ -184,6 +186,7 @@ const Navbar = () => {
             h="52px"
             w="100%"
             mt="1rem"
+            mb="0.5rem"
           >
             <MyInput />
             <InputIconWrapper>
