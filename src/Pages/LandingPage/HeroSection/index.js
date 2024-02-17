@@ -28,6 +28,7 @@ import MyLeftPerson1 from "../../../Assets/Svg/LeftPerson1.svg";
 import MyRightPerson from "../../../Assets/Svg/RightPerson.svg"
 import MyArrowDown1 from "../../../Assets/Svg/ArrowDown1.svg";
 import MySwiper from "../../../Components/Swiper";
+import { LandingText } from "../../../Helpers/LandingPageData";
 
 const HeroSection = () => {
   return (
@@ -35,26 +36,25 @@ const HeroSection = () => {
       <HeroContainer className="hero-bg">
         <HeroWrapper1>
           <HeroLeftPersonWrapper>
-            <HeroLeftPerson1 alt="left person" src={MyLeftPerson1} />
+            <HeroLeftPerson1 alt={LandingText.text1} src={MyLeftPerson1} />
           </HeroLeftPersonWrapper>
           <HeroRightTextWrapper>
             <HeroTextWrapper2>
               <HeroHeaderWrapper>
-                <HeroHeader>آرین شاپ</HeroHeader>
+                <HeroHeader>{LandingText.text2}</HeroHeader>
               </HeroHeaderWrapper>
               <HeroParaWrapper>
                 <HeroPara>
-                  آرین شاپ بستر مناسب و امنی را برای خرید آنلاین به مشتریان
-                  ارائه می دهد
+                {LandingText.text3}
                 </HeroPara>
               </HeroParaWrapper>
               <HeroBtnWrapper>
                 <HeroBtnLink to="/signin">
                   <HeroBtnTextWrapper>
-                    <HerBtnText>ورود</HerBtnText>
+                    <HerBtnText>{LandingText.text4}</HerBtnText>
                   </HeroBtnTextWrapper>
                   <HeroBtnIconWrapper>
-                    <HeroBtnIcon alt="sign in" src={MyArrowDown1} />
+                    <HeroBtnIcon alt={LandingText.text5} src={MyArrowDown1} />
                   </HeroBtnIconWrapper>
                 </HeroBtnLink>
               </HeroBtnWrapper>
@@ -67,13 +67,13 @@ const HeroSection = () => {
         </HeroSliderWrapper>
 
         <HeroLeftPersonwrapper2>
-          <HeroLeftPerson1 alt="left person" src={MyLeftPerson1} />
+          <HeroLeftPerson1 alt={LandingText.text6} src={MyLeftPerson1} />
         </HeroLeftPersonwrapper2>
         <HeroRightPersonWrapper>
-          <HeroRightPerson alt="Hero right person" src={MyRightPerson} />
+          <HeroRightPerson alt={LandingText.text7} src={MyRightPerson} />
         </HeroRightPersonWrapper>
         <HeroBigTextWrapper>
-          <HeroBigText>SHOPPING</HeroBigText>
+          <HeroBigText>{LandingText.text8}</HeroBigText>
         </HeroBigTextWrapper>
       </HeroContainer>
     </>
