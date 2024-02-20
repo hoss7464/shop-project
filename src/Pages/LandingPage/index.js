@@ -3,6 +3,7 @@ import { LandingContainer } from "./LandingElements";
 import { Container1 } from "../../Core-UI/MainContainers";
 import HeroSection from "./HeroSection";
 import Section1 from "./Section1";
+import Section2 from "./Section2";
 
 const LandingPage = () => {
   return (
@@ -11,6 +12,7 @@ const LandingPage = () => {
         <HeroSection />
         <Container1>
           <Section1 />
+          <Section2 />
         </Container1>
       </LandingContainer>
     </>
