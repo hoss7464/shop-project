@@ -46,8 +46,8 @@ export const Section2Person = styled.img`
     height: 426px;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    width: 586px;
-    height: 514px;
+    width: 470px;
+    height: 412px;
   }
 `;
 export const Section2TextWrapper = styled.div`
@@ -100,7 +100,7 @@ export const Section2ParaWrapper = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   margin-top: 1.5rem;
-  max-width: 430px;
+  max-width: 500px;
 `;
 
 export const Section2Para = styled.p`
