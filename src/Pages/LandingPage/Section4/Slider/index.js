@@ -1,21 +1,21 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "../Section3.css";
+import "../../Section3/Section3.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import SliderInnerComponents from "./SliderInnerComponents";
-import { Data2 } from "../../../../Helpers/Swipers";
+import SliderInnerComponents from "../../Section3/Slider/SliderInnerComponents";
+import { Data3 } from "../../../../Helpers/Swipers";
 
 const MySlider = () => {
   return (
     <>
       <Swiper
-        spaceBetween={20}
+        
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination,]}
+        modules={[Pagination]}
         className="mySwiper"
         breakpoints={{
           280: {
@@ -36,18 +36,18 @@ const MySlider = () => {
           }
         }}
       >
-        {Data2.map((myData2, index) => {
+        {Data3.map((myData3, index) => {
           return (
             <SwiperSlide className="swiper-slide1" key={index}>
               <SliderInnerComponents
-                myAlt1={myData2.alt1}
-                myImg1={myData2.src1}
-                myHeader={myData2.sliderHeader}
-                myPara={myData2.sliderPara}
-                myCode={myData2.code}
-                myPrice={myData2.sliderPrice}
-                myCurrentPrice={myData2.sliderCurrentPrice}
-                myDiscount={myData2.discount}
+                myAlt1={myData3.alt1}
+                myImg1={myData3.src1}
+                myHeader={myData3.sliderHeader}
+                myPara={myData3.sliderPara}
+                myCode={myData3.code}
+                myPrice={myData3.sliderPrice}
+                myCurrentPrice={myData3.sliderCurrentPrice}
+                myDiscount={myData3.discount}
               />
             </SwiperSlide>
           );

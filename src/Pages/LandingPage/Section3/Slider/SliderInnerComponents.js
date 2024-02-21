@@ -7,7 +7,6 @@ import {
   SwiperHeader,
   SwiperParaWrapper,
   SwiperPara,
-  SwiperStarWrapper,
   SwiperCodeWrapper,
   SwiperCode,
   SwiperPricePurchaseWrapper,
@@ -26,50 +25,57 @@ import {
   SwiperMoreIconWrapper,
   SwiperMoreIcon,
 } from "../Section3Elements";
-import myImg from "../../../../Assets/Png/9.jpg";
+import myImg2 from "../../../../Assets/Svg/basket1.svg";
+import myImg3 from "../../../../Assets/Svg/pen1.svg";
 
-
-const SliderInnerComponents = () => {
+const SliderInnerComponents = ({
+  myAlt1,
+  myImg1,
+  myHeader,
+  myPara,
+  myCode,
+  myPrice,
+  myCurrentPrice,
+  myDiscount,
+}) => {
   return (
     <>
       <SwiperPhotoWrapper>
-        <SwiperPhoto alt="slider photo" src={myImg}></SwiperPhoto>
+        <SwiperPhoto alt={myAlt1} src={myImg1}></SwiperPhoto>
       </SwiperPhotoWrapper>
       <SwiperHeaderWrapper>
-        <SwiperHeader> Lorem ipsum dolor </SwiperHeader>
+        <SwiperHeader> {myHeader} </SwiperHeader>
       </SwiperHeaderWrapper>
       <SwiperParaWrapper>
-        <SwiperPara>
-          Lorem ipsum dolor sit amet Ultricies sed neque cras .{" "}
-        </SwiperPara>
+        <SwiperPara>{myPara}</SwiperPara>
       </SwiperParaWrapper>
-      <SwiperStarWrapper>
-       
-      </SwiperStarWrapper>
       <SwiperCodeWrapper>
-        <SwiperCode></SwiperCode>
+        <SwiperCode>کد : {myCode}</SwiperCode>
       </SwiperCodeWrapper>
       <SwiperPricePurchaseWrapper>
         <SwiperPriceWrapper>
-          <SwiperPrice></SwiperPrice>
+          <SwiperPrice>{myPrice} ت</SwiperPrice>
+          <SwiperPrice>
+            <del style={{ opacity: "0.5" }}>{myCurrentPrice} ت</del>
+          </SwiperPrice>
         </SwiperPriceWrapper>
         <SwiperPurchaseWrapper>
-          <SwiperPurchaseLink>
-            <SwiperPurchase alt="" src="" />
+          <SwiperPurchaseLink to="/purchase">
+            <SwiperPurchase alt="basket" src={myImg2} />
           </SwiperPurchaseLink>
         </SwiperPurchaseWrapper>
       </SwiperPricePurchaseWrapper>
       <SwiperDiscountMoreWrapper>
         <SwiperDiscountWrapper>
-          <SwiperDiscount></SwiperDiscount>
+          <SwiperDiscount>{myDiscount}</SwiperDiscount>
         </SwiperDiscountWrapper>
         <SwiperMoreLinkWrapper>
           <SwiperMoreLink>
             <SwiperMoreTextWrapper>
-              <SwiperMoreText></SwiperMoreText>
+              <SwiperMoreText>بیشتر</SwiperMoreText>
             </SwiperMoreTextWrapper>
             <SwiperMoreIconWrapper>
-              <SwiperMoreIcon alt="" src="" />
+              <SwiperMoreIcon alt="pen" src={myImg3} />
             </SwiperMoreIconWrapper>
           </SwiperMoreLink>
         </SwiperMoreLinkWrapper>

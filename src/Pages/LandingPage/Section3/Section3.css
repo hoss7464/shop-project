@@ -3,15 +3,12 @@
   height: 100%;
 }
 
-.swiper-slide {
+.swiper-slide1 {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  padding-left: 1rem;
-  padding-top: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 2rem;
+  padding: 1rem;
   background-color: #e2e8f7;
   border-radius: 16px;
 }
