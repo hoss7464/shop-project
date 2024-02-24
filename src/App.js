@@ -8,6 +8,7 @@ import SignIn from "./Pages/SignInPage"
 import SignUp from "./Pages/SignUpPage"
 import ForgetPass from "./Pages/ForgetPassPage";
 import Purchase from "./Pages/PurchasePage";
+import Footer from "./Components/Footer";
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/forgetpassword" element={<ForgetPass />} />
           <Route path="/purchase" element={<Purchase />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );

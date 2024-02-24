@@ -1,0 +1,10 @@
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .mb {
+    margin-bottom: 1rem;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+    .mb {
+        margin-bottom: 1rem;
+      }
+}
