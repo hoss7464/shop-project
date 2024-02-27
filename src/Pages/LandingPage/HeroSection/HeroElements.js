@@ -145,7 +145,7 @@ export const HeroHeaderWrapper = styled.div`
 export const HeroHeader = styled.h1`
   color: ${colors.font1};
   font-size: 32px;
-  font-weight: 500;
+  font-weight: bolder;
 `;
 
 export const HeroParaWrapper = styled.div`
@@ -158,8 +158,8 @@ export const HeroParaWrapper = styled.div`
 
 export const HeroPara = styled.p`
   color: ${colors.font1};
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 300;
   text-align: right;
 `;
 
@@ -176,25 +176,26 @@ export const HeroBtnLink = styled(Link)`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: 55px;
-  background-color: ${colors.sec2};
-  padding-left: 8px;
-  padding-right: 4px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  border-radius: 8px;
+  background-color: ${colors.sec1};
+  padding-left: 16px;
+  padding-right: 6px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  
 `;
 
 export const HeroBtnTextWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 `;
 
 export const HerBtnText = styled.p`
-  font-size: 16px;
-  font-weight: 600;
-  color: ${colors.font1};
+  font-size: 21px;
+  font-weight: 400;
+  color: ${colors.font2};
 `;
 
 export const HeroBtnIconWrapper = styled.div`

@@ -35,7 +35,7 @@ import {
 } from "./FooterElements";
 import myMailIcon from "../../Assets/Svg/mailIcon.svg";
 import { LandingText } from "../../Helpers/LandingPageData";
-import myLog from "../../Assets/Svg/Logo1.svg";
+import myLog from "../../Assets/Svg/Logo2.svg";
 import { FooterInfo } from "../../Helpers/FooterData";
 import MyFooterPesrson from "../../Assets/Svg/FooterPerson.svg";
 

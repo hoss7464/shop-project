@@ -51,10 +51,10 @@ export const Section5Header = styled.h1`
   text-align: center;
 
   @media only screen and (min-width: 280px) and (max-width: 576px) {
-    font-size: 24px;
+    font-size: 20px;
   }
   @media only screen and (min-width: 577px) and (max-width: 1920px) {
-    font-size: 32px;
+    font-size: 28px;
   }
 `;
 
@@ -125,7 +125,7 @@ export const Section5InputButtonWraper = styled.div`
 export const Section5InputButton = styled.button`
   padding: 11px 20px;
   border-radius: 55px;
-  background-color: ${colors.sec2};
+  background-color: ${colors.sec1};
   cursor: pointer;
   color: ${colors.font2};
   font-size: 16px;

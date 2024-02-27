@@ -142,7 +142,7 @@ export const FooterInputButtonWraper = styled.div`
 export const FooterInputButton = styled.button`
   padding: 11px 24px;
   border-radius: 55px;
-  background-color: ${colors.sec2};
+  background-color: ${colors.sec1};
   cursor: pointer;
   color: ${colors.font2};
   font-size: 16px;
@@ -197,15 +197,14 @@ export const FooterUpperBottomTextWrapper = styled.div`
   align-items: center;
 `;
 export const FooterUpperBottomText = styled.h3`
-  font-size: 21px;
-  font-weight: 400;
+  font-weight: 300;
   color: ${colors.font2};
   text-align: right;
   @media only screen and (min-width: 280px) and (max-width: 576px) {
     font-size: 15px;
   }
   @media only screen and (min-width: 577px) and (max-width: 1920px) {
-    font-size: 21px;
+    font-size: 19px;
   }
 `;
 export const FooterLogoWrapper = styled.div`
@@ -370,7 +369,7 @@ export const FooterContentHeader = styled.h1`
     font-size: 18px;
   }
   @media only screen and (min-width: 577px) and (max-width: 1920px) {
-    font-size: 21px;
+    font-size: 24px;
   }
 `;
 export const FooterContentPararWrapper = styled.div`

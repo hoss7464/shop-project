@@ -1,13 +1,21 @@
 import styled from "@emotion/styled";
+import { colors } from "../Core-UI/Theme";
 
 export const MyInput = styled.input`
   height: 32px;
-  padding: 0.5rem;
   outline: none;
   border: none;
   background-color: transparent;
+  text-align: right;
+  padding-right: 0.5rem;
   &:active {
     outline: none;
+  }
+
+  &::placeholder {
+    color: ${colors.font1};
+    opacity: 0.3;
+    font-size: 16px;
   }
 
   @media only screen and (min-width: 280px) and (max-width: 576px) {
@@ -31,7 +39,6 @@ export const InputIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   right: 6px;
   cursor: pointer;
 `;

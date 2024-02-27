@@ -85,8 +85,8 @@ export const Section2HeaderWrapper = styled.div`
 `;
 export const Section2Header = styled.h1`
   color: ${colors.font1};
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 32px;
+  font-weight: 700;
 
   @media only screen and (min-width: 280px) and (max-width: 992px) {
     text-align: center;
@@ -106,7 +106,7 @@ export const Section2ParaWrapper = styled.div`
 export const Section2Para = styled.p`
   color: ${colors.font1};
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 300;
   @media only screen and (min-width: 280px) and (max-width: 992px) {
     text-align: center;
   }

@@ -11,7 +11,6 @@ const MySlider = () => {
   return (
     <>
       <Swiper
-        spaceBetween={20}
         pagination={{
           clickable: true,
         }}

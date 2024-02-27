@@ -48,7 +48,7 @@ const Navbar = () => {
         flexDirection={{ sma1: "column", sma2: "row", sma3: "row", lap: "row" }}
         w="100%"
         h={{ sma2: "80px", sma3: "80px", lap: "80px" }}
-        bg={colors.prime1}
+        bg={colors.prime3}
         position="fixed"
         pl={{ sma1: "1.5rem", sma2: "2.5rem", sma3: "3.5rem", lap: "3rem" }}
         pr={{ sma1: "1.5rem", sma2: "2.5rem", sma3: "3.5rem", lap: "3rem" }}
@@ -58,6 +58,7 @@ const Navbar = () => {
           display="flex"
           justifyContent="space-between"
           alignItems="center"
+          
         >
           <Box
             display={{
@@ -69,14 +70,17 @@ const Navbar = () => {
             }}
             justifyContent="center"
             alignItems="center"
+            
           >
             <LinkIcon alt={Data1.text10} src={MyMenu} />
           </Box>
 
           <Flex
-            bg={colors.prime3}
-            p="6px"
-            borderRadius="55px"
+            pt="7px"
+            pb="7px"
+            pr="5px"
+            pl="16px"
+            borderRadius="8px"
             h="52px"
             display={{
               base: "none",
@@ -85,8 +89,10 @@ const Navbar = () => {
               sma3: "none",
               lap: "flex",
             }}
+            border="solid 2px"
+            borderColor={colors.prime4}
           >
-            <MyLink to="/signup" style={{ marginRight: "1rem" }}>
+            <MyLink to="/signup" style={{ marginRight: "1.5rem" }}>
               <LinkTextWrapper>
                 <LinkText>{Data1.text1}</LinkText>
               </LinkTextWrapper>
@@ -105,26 +111,34 @@ const Navbar = () => {
           </Flex>
 
           <Flex
-            bg={colors.prime3}
-            borderRadius="55px"
-            p="6px"
+            borderRadius="8px"
+            pt="7px"
+            pb="7px"
+            pr="5px"
+            pl="16px"
             justifyContent="center"
             alignItems="center"
             flexDirection="row"
-            position="relative"
+            border="solid 2px"
+            borderColor={colors.prime4}
             h="52px"
             display={{ sma1: "none", sma2: "flex", sma3: "flex", lap: "flex" }}
           >
-            <MyInput />
+            <MyInput placeholder="جستجوی محصول" />
             <InputIconWrapper>
               <LinkIcon alt={Data1.text8} src={MySearch} />
             </InputIconWrapper>
           </Flex>
 
           <Flex
-            bg={colors.prime3}
-            p="6px"
-            borderRadius="55px"
+          
+            pt="7px"
+            pb="7px"
+            pr="5px"
+            pl="16px"
+            border="solid 2px"
+            borderColor={colors.prime4}
+            borderRadius="8px"
             h="52px"
             display={{
               base: "none",
@@ -134,7 +148,7 @@ const Navbar = () => {
               lap: "flex",
             }}
           >
-            <MyLink to="/purchase" style={{ marginRight: "1rem" }}>
+            <MyLink to="/purchase" style={{ marginRight: "1.5rem" }}>
               <LinkTextWrapper>
                 <LinkText>{Data1.text3}</LinkText>
               </LinkTextWrapper>
@@ -142,7 +156,7 @@ const Navbar = () => {
                 <LinkIcon alt={Data1.text9} src={MyPurchase} />
               </LinkIconWrapper>
             </MyLink>
-            <MyLink style={{ marginRight: "1rem" }}>
+            <MyLink style={{ marginRight: "1.5rem" }}>
               <LinkTextWrapper>
                 <LinkText>{Data1.text4}</LinkText>
               </LinkTextWrapper>

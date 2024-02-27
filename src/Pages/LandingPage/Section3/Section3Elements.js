@@ -44,7 +44,7 @@ export const Header = styled.h1`
     margin-left: 0;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 24px;
+    font-size: 28px;
     margin-left: 1rem;
   }
 `;
@@ -80,15 +80,15 @@ export const SwiperHeaderWrapper = styled.div`
   margin-top: 1rem;
 `;
 export const SwiperHeader = styled.h1`
-  font-weight: 500;
+  font-weight: 700;
   color: ${colors.font1};
   text-align: right;
 
   @media only screen and (min-width: 280px) and (max-width: 992px) {
-    font-size: 20px;
+    font-size: 16px;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 24px;
+    font-size: 22px;
   }
 `;
 export const SwiperParaWrapper = styled.div`
@@ -107,7 +107,7 @@ export const SwiperPara = styled.p`
     font-size: 14px;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 export const SwiperCodeWrapper = styled.div`
@@ -118,15 +118,15 @@ export const SwiperCodeWrapper = styled.div`
   margin-top: 1rem;
 `;
 export const SwiperCode = styled.p`
-  font-weight: 300;
+  font-weight: 700;
   color: ${colors.font1};
   text-align: right;
 
   @media only screen and (min-width: 280px) and (max-width: 992px) {
-    font-size: 14px;
+    font-size: 16px;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 18px;
+    font-size: 20px;
   }
 `;
 export const SwiperPricePurchaseWrapper = styled.div`
@@ -143,15 +143,15 @@ export const SwiperPriceWrapper = styled.div`
   flex-direction: column;
 `;
 export const SwiperPrice = styled.p`
-  font-weight: 300;
+  font-weight: 700;
   color: ${colors.font1};
   text-align: right;
 
   @media only screen and (min-width: 280px) and (max-width: 992px) {
-    font-size: 14px;
+    font-size: 16px;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 18px;
+    font-size: 20px;
   }
 `;
 export const SwiperPurchaseWrapper = styled.div`
@@ -174,12 +174,15 @@ export const SwiperDiscountWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${colors.sec1};
-  padding: 0.3rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.1rem;
   border-radius: 8px;
 `;
 export const SwiperDiscount = styled.p`
   color: ${colors.font2};
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 `;
 export const SwiperMoreLinkWrapper = styled.div`
@@ -204,10 +207,10 @@ export const SwiperMoreText = styled.p`
   text-align: right;
 
   @media only screen and (min-width: 280px) and (max-width: 992px) {
-    font-size: 14px;
+    font-size: 16px;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 18px;
+    font-size: 20px;
   }
 `;
 export const SwiperMoreIconWrapper = styled.div`

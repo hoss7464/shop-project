@@ -55,7 +55,7 @@ export const CardParaWrapper = styled.div`
   margin-top: 1rem;
 `;
 export const CardPara = styled.p`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   color: ${colors.font1};
   text-align: right;
@@ -68,7 +68,7 @@ export const CardProductWrapper = styled.div`
   margin-top: 1rem;
 `;
 export const CardProduct = styled.p`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   color: ${colors.font1};
   text-align: right;
@@ -98,8 +98,8 @@ export const CardPersonNameWrapper = styled.div`
   margin-right: 1rem;
 `;
 export const CardPersonName = styled.p`
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 800;
   color: ${colors.font1};
   text-align: right;
 `;

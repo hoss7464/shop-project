@@ -44,7 +44,7 @@ const SliderInnerComponents = ({
         <SwiperPhoto alt={myAlt1} src={myImg1}></SwiperPhoto>
       </SwiperPhotoWrapper>
       <SwiperHeaderWrapper>
-        <SwiperHeader> {myHeader} </SwiperHeader>
+        <SwiperHeader>{myHeader}</SwiperHeader>
       </SwiperHeaderWrapper>
       <SwiperParaWrapper>
         <SwiperPara>{myPara}</SwiperPara>
@@ -56,7 +56,7 @@ const SliderInnerComponents = ({
         <SwiperPriceWrapper>
           <SwiperPrice>{myPrice} ت</SwiperPrice>
           <SwiperPrice>
-            <del style={{ opacity: "0.5" }}>{myCurrentPrice} ت</del>
+            <del style={{ opacity: "0.2" }}>{myCurrentPrice} ت</del>
           </SwiperPrice>
         </SwiperPriceWrapper>
         <SwiperPurchaseWrapper>

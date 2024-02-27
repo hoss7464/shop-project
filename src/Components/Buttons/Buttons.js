@@ -29,8 +29,8 @@ export const LinkTextWrapper = styled.div`
   margin-right: 1rem;
 `;
 export const LinkText = styled.p`
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: bold;
   color: ${colors.font1};
 `;
 
