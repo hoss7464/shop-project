@@ -30,18 +30,19 @@ const validationSchema = Yup.object({
   password: Yup.string().required("تکمیل فیلد ضروریست"),
 });
 
-const SignIn = () => {
+const SignIn = ({ setToken }) => {
   const navigate = useNavigate();
 
   async function onSubmit(values, onSubmitProps) {
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data , error } = await supabase.auth.signInWithPassword({
         email: values.email,
         password: values.password,
       });
       if (error) throw error;
       onSubmitProps.setSubmitting(false);
       onSubmitProps.resetForm();
+      setToken(data);
       navigate("/userprofile");
     } catch (error) {
       alert(error);
