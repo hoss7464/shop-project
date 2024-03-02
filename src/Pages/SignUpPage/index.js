@@ -43,7 +43,7 @@ const validationSchema = Yup.object({
 //------------------------------------------------------------------------------
 
 const SignUpPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function onSubmit(values, onSubmitProps) {
     try {
@@ -58,13 +58,12 @@ const SignUpPage = () => {
       });
       if (error) throw error;
       alert("check your email for verification link");
+      onSubmitProps.setSubmitting(false);
+      onSubmitProps.resetForm();
+      navigate("/signin");
     } catch (error) {
       alert(error);
     }
-    //in real scenario you must wait for api response then call setSsubmitting function.
-    onSubmitProps.setSubmitting(false);
-    onSubmitProps.resetForm();
-    navigate("/signin");
   }
   return (
     <>
@@ -119,7 +118,7 @@ const SignUpPage = () => {
                     name="password"
                     fieldSrc={myFieldPassIcon}
                     fieldAlt="icon4"
-                    header="پسوورد"
+                    header="رمز عبور"
                   />
 
                   <FormikControl
@@ -129,7 +128,7 @@ const SignUpPage = () => {
                     name="confirmPassword"
                     fieldSrc={myFieldConfPassIcon}
                     fieldAlt="icon5"
-                    header="تایید پسوورد"
+                    header="تایید رمز عبور"
                   />
 
                   <SignupSubmitButton
@@ -140,7 +139,7 @@ const SignUpPage = () => {
                   </SignupSubmitButton>
                   <SignupLinkWrapper>
                     <p>
-                    {SignUpData1.text3}
+                      {SignUpData1.text3}
                       <SignupLink to="/signin">{SignUpData1.text4}</SignupLink>
                     </p>
                   </SignupLinkWrapper>
