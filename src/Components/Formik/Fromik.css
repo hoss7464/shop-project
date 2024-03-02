@@ -1,0 +1,49 @@
+.formik-input-field {
+  height: 100%;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  text-align: right;
+  outline: none;
+  background-color: transparent;
+}
+
+.formik-input-field:focus {
+  background-color: transparent;
+  outline: none;
+}
+
+.formik-input-field:active {
+  background-color: transparent;
+  outline: none;
+}
+
+.formik-input-field::after {
+  background-color: transparent;
+  outline: none;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 368px) {
+  .formik-input-field{
+    width: 180px;
+  }
+}
+@media only screen and (min-width: 369px) and (max-width: 576px) {
+  .formik-input-field {
+    width: 200px;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .formik-input-field {
+    width: 280px;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .formik-input-field {
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 1080px) and (max-width: 1920px) {
+  .formik-input-field {
+    width: 300px;
+  }
+}

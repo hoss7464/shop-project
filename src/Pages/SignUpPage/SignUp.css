@@ -1,0 +1,13 @@
+.formik {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    
+}
+
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+    .formik {
+        align-items: center;
+    }
+}

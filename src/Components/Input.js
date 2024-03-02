@@ -5,7 +5,7 @@ export const MyInput = styled.input`
   height: 32px;
   outline: none;
   border: none;
-  background-color: transparent;
+  background-color: ${colors.prime3};
   text-align: right;
   padding-right: 0.5rem;
   &:active {
