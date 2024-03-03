@@ -7,7 +7,7 @@ const UserProfile = ({ token }) => {
 
   function handleLogout() {
     sessionStorage.removeItem("token");
-    navigate("/");
+    navigate("/signin");
   }
   return (
     <>

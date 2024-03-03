@@ -31,16 +31,20 @@ const validationSchema = Yup.object({
 });
 
 const SignIn = ({ setToken }) => {
+
   const navigate = useNavigate();
 
   async function onSubmit(values, onSubmitProps) {
     try {
-      const { data , error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email: values.email,
         password: values.password,
       });
+
       if (error) throw error;
+
       onSubmitProps.setSubmitting(false);
+
       onSubmitProps.resetForm();
       setToken(data);
       navigate("/userprofile");
@@ -55,7 +59,7 @@ const SignIn = ({ setToken }) => {
           <SignupHeaderWrapper>
             <SignupHeader>{SigninData1.text1}</SignupHeader>
           </SignupHeaderWrapper>
-
+          
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}

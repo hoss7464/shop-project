@@ -90,7 +90,6 @@ const SignUpPage = () => {
                     fieldAlt="icon1"
                     header="نام و نام خانوادگی"
                   />
-
                   <FormikControl
                     control="input"
                     type="text"
@@ -100,7 +99,6 @@ const SignUpPage = () => {
                     fieldAlt="icon2"
                     header="نام کاربری"
                   />
-
                   <FormikControl
                     control="input"
                     type="email"
@@ -110,7 +108,6 @@ const SignUpPage = () => {
                     fieldAlt="icon3"
                     header="ایمیل"
                   />
-
                   <FormikControl
                     control="input"
                     type="password"
@@ -120,7 +117,6 @@ const SignUpPage = () => {
                     fieldAlt="icon4"
                     header="رمز عبور"
                   />
-
                   <FormikControl
                     control="input"
                     type="password"
@@ -130,7 +126,6 @@ const SignUpPage = () => {
                     fieldAlt="icon5"
                     header="تایید رمز عبور"
                   />
-
                   <SignupSubmitButton
                     type="submit"
                     disabled={!formik.isValid || formik.isSubmitting}

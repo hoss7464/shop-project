@@ -1,6 +1,6 @@
 import React from "react";
-import { ForgotContainer } from "./ForgotElement";
 import "../SignUpPage/SignUp.css";
+import { ResetContainer } from "./ResetElements";
 import {
   SignupWrapper,
   SignupHeaderWrapper,
@@ -10,37 +10,39 @@ import {
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "../../Components/Formik/FormikControl";
-import myFieldMailIcon from "../../Assets/Svg/mailIcon.svg";
-import { ForgotPassData1 } from "../../Helpers/ForgotPassData";
+import myFieldPassIcon from "../../Assets/Svg/passIcon.svg";
+import myFieldConfPassIcon from "../../Assets/Svg/confPassIcon.svg";
+import { ResetPassData1 } from "../../Helpers/ResetPassData";
 import { useNavigate } from "react-router-dom";
-//---------------------------------------------------------------------------
+//---------------------------------------------------------------------
 const initialValues = {
-  email: "",
+  password: "",
+  confirmPassword: "",
 };
 
 const validationSchema = Yup.object({
-  email: Yup.string()
-    .email("فرمت ایمیل نادرست است")
+  password: Yup.string().required("تکمیل فیلد ضروریست"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password"), ""], "رمز عبور مطابقت ندارد")
     .required("تکمیل فیلد ضروریست"),
 });
-//----------------------------------------------------------------------------
+//---------------------------------------------------------------------
 
-const ForgetPass = () => {
+const ResetPass = () => {
   const navigate = useNavigate();
 
   function onSubmit(values, onSubmitProps) {
     onSubmitProps.setSubmitting(false);
     onSubmitProps.resetForm();
-    navigate("/resetPass");
+    navigate("/signin");
     console.log("Form Data", values);
   }
-
   return (
     <>
-      <ForgotContainer>
+      <ResetContainer>
         <SignupWrapper>
           <SignupHeaderWrapper>
-            <SignupHeader>{ForgotPassData1.text1}</SignupHeader>
+            <SignupHeader>{ResetPassData1.text1}</SignupHeader>
           </SignupHeaderWrapper>
           <Formik
             initialValues={initialValues}
@@ -52,28 +54,37 @@ const ForgetPass = () => {
                 <Form className="formik">
                   <FormikControl
                     control="input"
-                    type="email"
-                    label="Email"
-                    name="email"
-                    fieldSrc={myFieldMailIcon}
-                    fieldAlt="icon3"
-                    header="ایمیل"
+                    type="password"
+                    label="Password"
+                    name="password"
+                    fieldSrc={myFieldPassIcon}
+                    fieldAlt="icon4"
+                    header="رمز عبور"
+                  />
+                  <FormikControl
+                    control="input"
+                    type="password"
+                    label="Confirm Password"
+                    name="confirmPassword"
+                    fieldSrc={myFieldConfPassIcon}
+                    fieldAlt="icon5"
+                    header="تایید رمز عبور"
                   />
 
                   <SignupSubmitButton
                     type="submit"
                     disabled={!formik.isValid || formik.isSubmitting}
                   >
-                    {ForgotPassData1.text2}
+                    {ResetPassData1.text2}
                   </SignupSubmitButton>
                 </Form>
               );
             }}
           </Formik>
         </SignupWrapper>
-      </ForgotContainer>
+      </ResetContainer>
     </>
   );
 };
 
-export default ForgetPass;
+export default ResetPass;

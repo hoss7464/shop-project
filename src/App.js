@@ -8,6 +8,7 @@ import UserProfile from "./Pages/UserProfile";
 import SignIn from "./Pages/SignInPage"
 import SignUp from "./Pages/SignUpPage"
 import ForgetPass from "./Pages/ForgetPassPage";
+import ResetPass from "./Pages/ResetPassword";
 import Purchase from "./Pages/PurchasePage";
 import Footer from "./Components/Footer";
 
@@ -33,11 +34,12 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/production" element={<Production />} />
-          <Route path="/admindashboard" element={<AdminDashboard />} />
+          <Route path="/admindashboard" element={<AdminDashboard setToken={setToken} />} />
           <Route path="/signin" element={<SignIn setToken={setToken} />} />
           <Route path="/signup" element={<SignUp />} />
           {token ? <Route path="/userprofile" element={<UserProfile setToken={setToken} />} /> : ""}
           <Route path="/forgetpassword" element={<ForgetPass />} />
+          <Route path="/resetPass" element={<ResetPass />} />
           <Route path="/purchase" element={<Purchase />} />
         </Routes>
         <Footer />
