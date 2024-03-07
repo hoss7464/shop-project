@@ -19,20 +19,24 @@ const MySlider = () => {
         breakpoints={{
           280: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween:10
           },
-          577: {
-            slidesPerView: 2,
-            spaceBetween: 10,
+          577:{
+            slidesPerView:2,
+            spaceBetween:10
           },
           769: {
             slidesPerView: 3,
-            spaceBetween: 15,
+            spaceBetween:15
           },
-          1080: {
-            slidesPerView: 4,
-            spaceBetween: 20,
+          1080:{
+            slidesPerView:3,
+            spaceBetween:20
           },
+          1440:{
+            slidesPerView:4,
+            spaceBetween:20
+          }
         }}
       >
         {Data3.map((myData3, index) => {

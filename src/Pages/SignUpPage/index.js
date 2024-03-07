@@ -20,6 +20,7 @@ import myFieldConfPassIcon from "../../Assets/Svg/confPassIcon.svg";
 import { SignUpData1 } from "../../Helpers/SignUpPageData";
 import { supabase } from "../../Supabase/Client";
 import { useNavigate } from "react-router-dom";
+
 //-------------------------------------------------------------------------
 const initialValues = {
   fullname: "",

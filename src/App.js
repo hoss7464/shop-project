@@ -1,43 +1,53 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import LandingPage from "./Pages/LandingPage";
-import Production from "./Pages/ProductionPage"
+import Production from "./Pages/ProductionPage";
 import AdminDashboard from "./Pages/AdminDashboard";
 import UserProfile from "./Pages/UserProfile";
-import SignIn from "./Pages/SignInPage"
-import SignUp from "./Pages/SignUpPage"
+import SignIn from "./Pages/SignInPage";
+import SignUp from "./Pages/SignUpPage";
 import ForgetPass from "./Pages/ForgetPassPage";
 import ResetPass from "./Pages/ResetPassword";
 import Purchase from "./Pages/PurchasePage";
 import Footer from "./Components/Footer";
-
-
+import ScrollToTop from "./Core-UI/ScrollToTop";
 
 function App() {
-  const [token, setToken] = useState(false)
+  const [token, setToken] = useState(false);
 
   if (token) {
-    sessionStorage.setItem("token", JSON.stringify(token))
+    sessionStorage.setItem("token", JSON.stringify(token));
   }
-  
+
   useEffect(() => {
-   if (sessionStorage.getItem("token")) {
-    let data = JSON.parse(sessionStorage.getItem("token"))
-    setToken(data)
-   }
-  }, [])
+    if (sessionStorage.getItem("token")) {
+      let data = JSON.parse(sessionStorage.getItem("token"));
+      setToken(data);
+    }
+  }, []);
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/production" element={<Production />} />
-          <Route path="/admindashboard" element={<AdminDashboard setToken={setToken} />} />
+          <Route
+            path="/admindashboard"
+            element={<AdminDashboard setToken={setToken} />}
+          />
           <Route path="/signin" element={<SignIn setToken={setToken} />} />
           <Route path="/signup" element={<SignUp />} />
-          {token ? <Route path="/userprofile" element={<UserProfile setToken={setToken} />} /> : ""}
+          {token ? (
+            <Route
+              path="/userprofile"
+              element={<UserProfile setToken={setToken} />}
+            />
+          ) : (
+            ""
+          )}
           <Route path="/forgetpassword" element={<ForgetPass />} />
           <Route path="/resetPass" element={<ResetPass />} />
           <Route path="/purchase" element={<Purchase />} />

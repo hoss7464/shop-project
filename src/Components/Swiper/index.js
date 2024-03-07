@@ -17,21 +17,18 @@ const MySwiper = () => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        
         pagination={{
           clickable: true,
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
-        
       >
         {Data1.map((myData, index) => {
           return (
             <SwiperSlide key={index}>
               <img
                 alt="swiper img"
-                
                 src={myData.img}
                 className="swiper-slide img"
               />

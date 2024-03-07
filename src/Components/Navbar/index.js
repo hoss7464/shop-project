@@ -1,5 +1,5 @@
-import React from "react";
-import "./Navbar.css"
+import React, { useState } from "react";
+import "./Navbar.css";
 import { useLocation } from "react-router-dom";
 import {
   ChakraProvider,
@@ -27,10 +27,13 @@ import MyPurchase from "../../Assets/Svg/PurchaseIcon.svg";
 import MyLogo1 from "../../Assets/Svg/Logo1.svg";
 import MyHome from "../../Assets/Svg/HomeIcon.svg";
 import { Data1 } from "../../Helpers/NavbarData";
+import Category from "../CategoryMenu";
 //----------------------------------------------------------------------------------------
 
 const Navbar = () => {
+  const [hovered, setHovered] = useState(false);
   const location = useLocation();
+  //---------------------------------------------
   if (
     location.pathname === "/admindashboard" ||
     location.pathname === "/userprofile"
@@ -39,10 +42,13 @@ const Navbar = () => {
 
   const theme = extendTheme({ breakpoints });
 
+  const toggleHover = () => setHovered(true);
+  const toggleHoverLeave = () => setHovered(false);
+
   return (
-    <ChakraProvider theme={theme} >
-      <Flex 
-      className="nav"
+    <ChakraProvider theme={theme}>
+      <Flex
+        className="nav"
         justify="center"
         alignItems="center"
         flexDirection={{ sma1: "column", sma2: "row", sma3: "row", lap: "row" }}
@@ -58,7 +64,6 @@ const Navbar = () => {
           display="flex"
           justifyContent="space-between"
           alignItems="center"
-          
         >
           <Box
             display={{
@@ -70,7 +75,6 @@ const Navbar = () => {
             }}
             justifyContent="center"
             alignItems="center"
-            
           >
             <LinkIcon alt={Data1.text10} src={MyMenu} />
           </Box>
@@ -131,7 +135,6 @@ const Navbar = () => {
           </Flex>
 
           <Flex
-          
             pt="7px"
             pb="7px"
             pr="5px"
@@ -156,7 +159,11 @@ const Navbar = () => {
                 <LinkIcon alt={Data1.text9} src={MyPurchase} />
               </LinkIconWrapper>
             </MyLink>
-            <MyLink style={{ marginRight: "1.5rem" }}>
+            <MyLink
+              style={{ marginRight: "1.5rem" }}
+              onMouseEnter={toggleHover}
+              onMouseLeave={toggleHoverLeave}
+            >
               <LinkTextWrapper>
                 <LinkText>{Data1.text4}</LinkText>
               </LinkTextWrapper>
@@ -164,6 +171,13 @@ const Navbar = () => {
                 <LinkIcon alt={Data1.text10} src={MyMenu} />
               </LinkIconWrapper>
             </MyLink>
+            {hovered && (
+              <Category
+                toggleHover={toggleHover}
+                toggleHoverLeave={toggleHoverLeave}
+              />
+            )}
+
             <MyLink to="/">
               <LinkTextWrapper>
                 <LinkText>{Data1.text5}</LinkText>
