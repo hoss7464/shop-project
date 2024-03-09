@@ -16,6 +16,7 @@ export const LinkIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 export const LinkIcon = styled.img`

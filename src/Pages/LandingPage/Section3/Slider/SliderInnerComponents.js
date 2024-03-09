@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../Section3.css";
 import {
   SwiperPhotoWrapper,
@@ -13,22 +13,20 @@ import {
   SwiperPriceWrapper,
   SwiperPrice,
   SwiperPurchaseWrapper,
-  SwiperPurchaseLink,
-  SwiperPurchase,
   SwiperDiscountMoreWrapper,
   SwiperDiscountWrapper,
   SwiperDiscount,
   SwiperMoreLinkWrapper,
   SwiperMoreLink,
-  SwiperMoreTextWrapper,
-  SwiperMoreText,
   SwiperMoreIconWrapper,
   SwiperMoreIcon,
+  PurchaseButton,
 } from "../Section3Elements";
-import myImg2 from "../../../../Assets/Svg/basket1.svg";
 import myImg3 from "../../../../Assets/Svg/pen1.svg";
+import { ShopContext } from "../../../../Context/shop-context";
 
 const SliderInnerComponents = ({
+  myId,
   myAlt1,
   myImg1,
   myHeader,
@@ -38,6 +36,8 @@ const SliderInnerComponents = ({
   myCurrentPrice,
   myDiscount,
 }) => {
+  const { cartItems, addToCart } = useContext(ShopContext);
+
   return (
     <>
       <SwiperPhotoWrapper>
@@ -49,9 +49,7 @@ const SliderInnerComponents = ({
       <SwiperParaWrapper>
         <SwiperPara>{myPara}</SwiperPara>
       </SwiperParaWrapper>
-      <SwiperCodeWrapper>
-        <SwiperCode>کد : {myCode}</SwiperCode>
-      </SwiperCodeWrapper>
+
       <SwiperPricePurchaseWrapper>
         <SwiperPriceWrapper>
           <SwiperPrice>{myPrice} ت</SwiperPrice>
@@ -59,10 +57,11 @@ const SliderInnerComponents = ({
             <del style={{ opacity: "0.2" }}>{myCurrentPrice} ت</del>
           </SwiperPrice>
         </SwiperPriceWrapper>
+
         <SwiperPurchaseWrapper>
-          <SwiperPurchaseLink to="/purchase">
-            <SwiperPurchase alt="basket" src={myImg2} />
-          </SwiperPurchaseLink>
+          <SwiperCodeWrapper>
+            <SwiperCode>کد : {myCode}</SwiperCode>
+          </SwiperCodeWrapper>
         </SwiperPurchaseWrapper>
       </SwiperPricePurchaseWrapper>
       <SwiperDiscountMoreWrapper>
@@ -70,16 +69,19 @@ const SliderInnerComponents = ({
           <SwiperDiscount>{myDiscount}</SwiperDiscount>
         </SwiperDiscountWrapper>
         <SwiperMoreLinkWrapper>
-          <SwiperMoreLink>
-            <SwiperMoreTextWrapper>
-              <SwiperMoreText>بیشتر</SwiperMoreText>
-            </SwiperMoreTextWrapper>
-            <SwiperMoreIconWrapper>
-              <SwiperMoreIcon alt="pen" src={myImg3} />
-            </SwiperMoreIconWrapper>
-          </SwiperMoreLink>
+          <SwiperMoreLink to="/productdetails">بیشتر</SwiperMoreLink>
+          <SwiperMoreIconWrapper>
+            <SwiperMoreIcon alt="more details" src={myImg3} />
+          </SwiperMoreIconWrapper>
         </SwiperMoreLinkWrapper>
       </SwiperDiscountMoreWrapper>
+      <PurchaseButton
+        onClick={() => addToCart(myId)}
+        disabled={cartItems[myId] > 0 ? true : false}
+        style={cartItems[myId] > 0 ? {backgroundColor : "#bebebe"} : {backgroundColor : "#445215"}}
+      >
+        {cartItems[myId] ? "اضافه شد" : "خرید"}
+      </PurchaseButton>
     </>
   );
 };

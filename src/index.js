@@ -5,17 +5,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
+import ShopContextProvider from "./Context/shop-context";
 
 //---------------------------------------------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ChakraProvider>
-      
+    <ShopContextProvider>
+      <ChakraProvider>
         <App />
-      
-    </ChakraProvider>
+      </ChakraProvider>
+    </ShopContextProvider>
   </React.StrictMode>
 );
 

@@ -1,0 +1,112 @@
+import img1 from "../Assets/Png/15.jpg";
+import img2 from "../Assets/Png/16.jpg";
+import img3 from "../Assets/Png/17.jpg";
+import img4 from "../Assets/Png/18.jpg";
+import img5 from "../Assets/Png/19.jpg";
+import img6 from "../Assets/Png/20.jpg";
+import img7 from "../Assets/Png/21.jpg";
+
+export const db1 = [
+  {
+    id: 1,
+    product: "refrigrator",
+    category: "kitchen",
+    brand: "samsung",
+    picture: img1,
+    header: "Samsung 36-Inch",
+    paragraph:
+      "Samsung's extra-large capacity Smart 4-Door Flex refrigerator",
+    code: "1",
+    price: 6000000,
+    currentPrice: 6500000,
+    discount: "0.07",
+    details: "",
+  },
+  {
+    id: 2,
+    product: "iphone",
+    category: "electronic",
+    brand: "iphone",
+    picture: img2,
+    header: "Apple iPhone 13 Pro Max",
+    paragraph:
+      "This product is inspected, tested, and refurbished, as necessary ",
+    code: "2",
+    price: 3500000,
+    currentPrice: 4000000,
+    discount: "0.12",
+    details: "",
+  },
+  {
+    id: 3,
+    product: "shoes",
+    category: "cloth",
+    brand: "adidas",
+    picture: img3,
+    header: "adidas Womens Court Shoes",
+    paragraph:
+      " Cloudfoam Comfort sockliner is ultra-soft and plush, with two layers",
+    code: "3",
+    price: 2500000,
+    currentPrice: 3000000,
+    discount: "0.16",
+    details: "",
+  },
+  {
+    id: 4,
+    product: "pencils",
+    category: "stationary",
+    brand: "faber-castell",
+    picture: img4,
+    header: "Faber-Castell Colour Pencils",
+    paragraph:
+      "Bright, luminous colours. Including metallic, neon and pastel colours",
+    code: "4",
+    price: 1000000,
+    currentPrice: 1500000,
+    discount: "0.33",
+    details: "",
+  },
+  {
+    id: 5,
+    product: "macbook",
+    category: "electronic",
+    brand: "apple",
+    picture: img5,
+    header: "Apple MacBook Air",
+    paragraph: "Touch ID and the latest Apple-designed keyboard",
+    code: "5",
+    price: 23000000,
+    currentPrice: 24000000,
+    discount: 0.04,
+    details: "",
+  },
+  {
+    id: 6,
+    product: "paper",
+    category: "stationary",
+    brand: "copymax",
+    picture: img6,
+    header: "Office Depot(R)",
+    paragraph: "Provides a bright, smooth option 94 (U.S.) brightness.",
+    code: "6",
+    price: 350000,
+    currentPrice: 400000,
+    discount: "0.12",
+    details: "",
+  },
+  {
+    id: 7,
+    product: "shoes",
+    category: "cloth",
+    brand: "adidas",
+    picture: img7,
+    header: "adidas Men's Tennis Shoe",
+    paragraph: "Men's tennis shoes built for practice and performance",
+    code: "7",
+    price: 2500000,
+    currentPrice: 3000000,
+    discount: "0.16",
+    details: "",
+  },
+];

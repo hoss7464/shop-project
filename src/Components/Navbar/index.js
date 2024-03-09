@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Navbar.css";
 import { useLocation } from "react-router-dom";
 import {
@@ -28,11 +28,13 @@ import MyLogo1 from "../../Assets/Svg/Logo1.svg";
 import MyHome from "../../Assets/Svg/HomeIcon.svg";
 import { Data1 } from "../../Helpers/NavbarData";
 import Category from "../CategoryMenu";
+import { ShopContext } from "../../Context/shop-context";
 //----------------------------------------------------------------------------------------
 
 const Navbar = () => {
   const [hovered, setHovered] = useState(false);
   const location = useLocation();
+  const {  getTotalItem } = useContext(ShopContext);
   //---------------------------------------------
   if (
     location.pathname === "/admindashboard" ||
@@ -157,6 +159,7 @@ const Navbar = () => {
               </LinkTextWrapper>
               <LinkIconWrapper>
                 <LinkIcon alt={Data1.text9} src={MyPurchase} />
+               {getTotalItem() > 0 ? <span className="my-shopping-number">{getTotalItem()}</span> : ""}
               </LinkIconWrapper>
             </MyLink>
             <MyLink

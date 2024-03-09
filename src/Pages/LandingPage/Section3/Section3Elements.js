@@ -63,7 +63,7 @@ export const SwiperPhotoWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 210px;
+  height: 190px;
   border-radius: 8px;
 `;
 export const SwiperPhoto = styled.img`
@@ -77,7 +77,7 @@ export const SwiperHeaderWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 `;
 export const SwiperHeader = styled.h1`
   font-weight: 700;
@@ -88,7 +88,7 @@ export const SwiperHeader = styled.h1`
     font-size: 16px;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 22px;
+    font-size: 20px;
   }
 `;
 export const SwiperParaWrapper = styled.div`
@@ -96,7 +96,7 @@ export const SwiperParaWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 `;
 export const SwiperPara = styled.p`
   font-weight: 300;
@@ -115,18 +115,18 @@ export const SwiperCodeWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 `;
 export const SwiperCode = styled.p`
-  font-weight: 700;
+  font-weight: 300;
   color: ${colors.font1};
   text-align: right;
 
   @media only screen and (min-width: 280px) and (max-width: 992px) {
-    font-size: 16px;
+    font-size: 14px;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 `;
 export const SwiperPricePurchaseWrapper = styled.div`
@@ -134,7 +134,7 @@ export const SwiperPricePurchaseWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 `;
 export const SwiperPriceWrapper = styled.div`
   display: flex;
@@ -148,10 +148,10 @@ export const SwiperPrice = styled.p`
   text-align: right;
 
   @media only screen and (min-width: 280px) and (max-width: 992px) {
-    font-size: 16px;
+    font-size: 14px;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 20px;
+    font-size: 16px;
   }
 `;
 export const SwiperPurchaseWrapper = styled.div`
@@ -167,7 +167,7 @@ export const SwiperDiscountMoreWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 `;
 export const SwiperDiscountWrapper = styled.div`
   display: flex;
@@ -194,31 +194,53 @@ export const SwiperMoreLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  color: ${colors.font1};
+  font-weight: 500;
+  padding: 8px 8px;
+  @media only screen and (min-width: 280px) and (max-width: 992px) {
+    font-size: 14px;
+  }
+  @media only screen and (min-width: 1080px) and (max-width: 1920px) {
+    font-size: 18px;
+  }
 `;
 export const SwiperMoreTextWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 `;
 export const SwiperMoreText = styled.p`
   font-weight: 500;
   color: ${colors.font1};
   text-align: right;
-
-  @media only screen and (min-width: 280px) and (max-width: 992px) {
-    font-size: 16px;
-  }
-  @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    font-size: 20px;
-  }
 `;
 export const SwiperMoreIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
 `;
 export const SwiperMoreIcon = styled.img`
-  width: 17px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 `;
+
+export const PurchaseButton = styled.button`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+
+color: ${colors.font2};
+border-radius: 8px;
+font-size: 16px;
+font-weight: 500;
+padding-top: 8px;
+padding-bottom: 8px;
+margin-top: 0.5rem;
+margin-bottom: 0.5rem;
+cursor: pointer;
+border: none;
+`

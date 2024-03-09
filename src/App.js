@@ -12,6 +12,8 @@ import ResetPass from "./Pages/ResetPassword";
 import Purchase from "./Pages/PurchasePage";
 import Footer from "./Components/Footer";
 import ScrollToTop from "./Core-UI/ScrollToTop";
+import ProductDetails from "./Pages/ProductDetailsPage";
+
 
 function App() {
   const [token, setToken] = useState(false);
@@ -51,6 +53,7 @@ function App() {
           <Route path="/forgetpassword" element={<ForgetPass />} />
           <Route path="/resetPass" element={<ResetPass />} />
           <Route path="/purchase" element={<Purchase />} />
+          <Route path="/productdetails" element={<ProductDetails />} />
         </Routes>
         <Footer />
       </Router>
