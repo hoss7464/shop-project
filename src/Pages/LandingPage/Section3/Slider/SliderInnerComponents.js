@@ -35,6 +35,7 @@ const SliderInnerComponents = ({
   myPrice,
   myCurrentPrice,
   myDiscount,
+  myRoute,
 }) => {
   const { cartItems, addToCart } = useContext(ShopContext);
 
@@ -69,7 +70,7 @@ const SliderInnerComponents = ({
           <SwiperDiscount>{myDiscount}</SwiperDiscount>
         </SwiperDiscountWrapper>
         <SwiperMoreLinkWrapper>
-          <SwiperMoreLink to="/productdetails">بیشتر</SwiperMoreLink>
+          <SwiperMoreLink to={`/productdetails/${myRoute}`}>بیشتر</SwiperMoreLink>
           <SwiperMoreIconWrapper>
             <SwiperMoreIcon alt="more details" src={myImg3} />
           </SwiperMoreIconWrapper>

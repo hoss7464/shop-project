@@ -14,7 +14,6 @@ import Footer from "./Components/Footer";
 import ScrollToTop from "./Core-UI/ScrollToTop";
 import ProductDetails from "./Pages/ProductDetailsPage";
 
-
 function App() {
   const [token, setToken] = useState(false);
 
@@ -36,6 +35,9 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/production" element={<Production />} />
+          <Route path="/productdetails" element={<ProductDetails />} />
+          <Route path="/productdetails/:productId" element={<ProductDetails />} />
+
           <Route
             path="/admindashboard"
             element={<AdminDashboard setToken={setToken} />}
@@ -53,7 +55,6 @@ function App() {
           <Route path="/forgetpassword" element={<ForgetPass />} />
           <Route path="/resetPass" element={<ResetPass />} />
           <Route path="/purchase" element={<Purchase />} />
-          <Route path="/productdetails" element={<ProductDetails />} />
         </Routes>
         <Footer />
       </Router>

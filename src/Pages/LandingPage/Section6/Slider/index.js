@@ -53,6 +53,7 @@ const MySlider = () => {
                 myPrice={myData2.price}
                 myCurrentPrice={myData2.currentPrice}
                 myDiscount={myData2.discount}
+                myRoute={myData2.id}
               />
             </SwiperSlide>
           );
