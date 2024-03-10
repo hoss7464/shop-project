@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import SliderInnerComponents from '../../Section3/Slider/SliderInnerComponents';
-import { Data4 } from '../../../../Helpers/Swipers';
+import { db1 } from '../../../../db';
 
 const MySlider = () => {
     return (
@@ -40,18 +40,19 @@ const MySlider = () => {
           }
         }}
       >
-        {Data4.map((myData4, index) => {
+        {db1.slice(17, 23).map((myData2, index) => {
           return (
             <SwiperSlide className="swiper-slide1" key={index}>
               <SliderInnerComponents
-                myAlt1={myData4.alt1}
-                myImg1={myData4.src1}
-                myHeader={myData4.sliderHeader}
-                myPara={myData4.sliderPara}
-                myCode={myData4.code}
-                myPrice={myData4.sliderPrice}
-                myCurrentPrice={myData4.sliderCurrentPrice}
-                myDiscount={myData4.discount}
+                myId={myData2.id}
+                myAlt1={myData2.product}
+                myImg1={myData2.picture}
+                myHeader={myData2.header}
+                myPara={myData2.paragraph}
+                myCode={myData2.code}
+                myPrice={myData2.price}
+                myCurrentPrice={myData2.currentPrice}
+                myDiscount={myData2.discount}
               />
             </SwiperSlide>
           );

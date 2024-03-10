@@ -39,7 +39,7 @@ const MySlider = () => {
           },
         }}
       >
-        {db1.map((myData2, index) => (
+        {db1.slice(0, 7).map((myData2, index) => (
           <SwiperSlide className="swiper-slide1" key={index}>
             <SliderInnerComponents
             myId={myData2.id}

@@ -56,6 +56,7 @@ export const SwiperWrapper = styled.div`
   width: 100%;
   margin-top: 1rem;
   margin-bottom: 1rem;
+
 `;
 
 export const SwiperPhotoWrapper = styled.div`
@@ -240,7 +241,6 @@ font-weight: 500;
 padding-top: 8px;
 padding-bottom: 8px;
 margin-top: 0.5rem;
-margin-bottom: 0.5rem;
 cursor: pointer;
 border: none;
 `
