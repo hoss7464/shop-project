@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   CategoryContainer,
   CategoryWrapper1,
@@ -10,8 +10,11 @@ import {
   CategoryLink,
 } from "./CategoryElements";
 import { CatData1 } from "../../Helpers/CategoryData";
+import { ShopContext } from "../../Context/shop-context";
 
 const Category = ({ toggleHover, toggleHoverLeave }) => {
+  const {handleClick, result} = useContext(ShopContext);
+
   return (
     <>
       <CategoryContainer
@@ -76,19 +79,32 @@ const Category = ({ toggleHover, toggleHoverLeave }) => {
             </CategoryHeaderWrapper>
             <CategoryLinkWrapper>
               <CategoryLinkWrapper2>
-                <CategoryLink to="/production">{CatData1.text7}</CategoryLink>
+                <CategoryLink to="/production">
+                  <button onClick={ handleClick} value="cellphone" >{CatData1.text7}</button>
+                </CategoryLink>
               </CategoryLinkWrapper2>
               <CategoryLinkWrapper2>
-                <CategoryLink to="/production">{CatData1.text8}</CategoryLink>
+                <CategoryLink to="/production">
+                  <button onClick={ handleClick} value="kitchen" >{CatData1.text8}</button>
+                </CategoryLink>
               </CategoryLinkWrapper2>
               <CategoryLinkWrapper2>
-                <CategoryLink to="/production">{CatData1.text9}</CategoryLink>
+                <CategoryLink to="/production">
+                  <button onClick={ handleClick} value="electronic" >{CatData1.text9}</button>
+                </CategoryLink>
               </CategoryLinkWrapper2>
               <CategoryLinkWrapper2>
-                <CategoryLink to="/production">{CatData1.text10}</CategoryLink>
+                <CategoryLink to="/production">
+                  <button>{CatData1.text10}</button>
+                </CategoryLink>
               </CategoryLinkWrapper2>
               <CategoryLinkWrapper2>
-                <CategoryLink to="/production">{CatData1.text11}</CategoryLink>
+                <CategoryLink to="/production">
+                  <button>{CatData1.text11}</button>
+                </CategoryLink>
+                <CategoryLink to="/production">
+                  <button onClick={ handleClick} value="">all</button>
+                </CategoryLink>
               </CategoryLinkWrapper2>
             </CategoryLinkWrapper>
           </CategoryWrapper2>

@@ -92,7 +92,7 @@ export const db1 = [
   },
   {
     id: 5,
-    product: "macbook",
+    product: "laptop",
     category: "electronic",
     brand: "apple",
     picture: img5,
@@ -302,7 +302,7 @@ export const db1 = [
   },
   {
     id: 20,
-    product: "airpod",
+    product: "mobile-accessory",
     category: "electronic",
     brand: "iphone",
     picture: img20,
@@ -316,7 +316,7 @@ export const db1 = [
   },
   {
     id: 21,
-    product: "siliconcase",
+    product: "mobile-accessory",
     category: "electronic",
     brand: "samsung",
     picture: img21,
@@ -331,7 +331,7 @@ export const db1 = [
   },
   {
     id: 22,
-    product: "siliconcase",
+    product: "mobile-accessory",
     category: "electronic",
     brand: "xiaomi",
     picture: img22,
@@ -374,7 +374,7 @@ export const db1 = [
   },
   {
     id: 25,
-    product: "mouse",
+    product: "laptop-accessory",
     category: "electronic",
     brand: "apple",
     picture: img25,
@@ -388,7 +388,7 @@ export const db1 = [
   },
   {
     id: 26,
-    product: "headphone",
+    product: "laptop-accessory",
     category: "electronic",
     brand: "sony",
     picture: img26,
@@ -402,7 +402,7 @@ export const db1 = [
   },
   {
     id: 27,
-    product: "keyboard",
+    product: "laptop-accessory",
     category: "electronic",
     brand: "apple",
     picture: img27,
@@ -416,7 +416,7 @@ export const db1 = [
   },
   {
     id: 28,
-    product: "motherboard",
+    product: "pc-accessory",
     category: "electronic",
     brand: "intel",
     picture: img28,
@@ -431,7 +431,7 @@ export const db1 = [
   },
   {
     id: 29,
-    product: "hardware",
+    product: "pc-accessory",
     category: "electronic",
     brand: "nvidia",
     picture: img29,
