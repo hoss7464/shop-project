@@ -35,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/production" element={<Production />} />
+          <Route path="/production/:productId" element={<ProductDetails />} />
           <Route path="/productdetails" element={<ProductDetails />} />
           <Route path="/productdetails/:productId" element={<ProductDetails />} />
 

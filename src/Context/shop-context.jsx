@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import { db1 } from "../db";
+import "./Cntext.css";
 import ProductionMainComponent from "../Pages/ProductionPage/ProductionMainComponent";
 
 export const ShopContext = createContext(null);
@@ -14,7 +15,10 @@ const getDefaultCart = () => {
 
 const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
-
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [query, setQuery] = useState("");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(100000);
   //----------------------------------------------------------------------------
   //Adding a production into our cart:
   const addToCart = (itemId) => {
@@ -59,9 +63,6 @@ const ShopContextProvider = ({ children }) => {
   };
   //----------------------------------------------------------------------------
   //Filtering production based on category
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [query, setQuery] = useState("");
-
   //input filter :
   const handleInputChange = (e) => {
     setQuery(e.target.value);
@@ -83,32 +84,67 @@ const ShopContextProvider = ({ children }) => {
     setSelectedCategory(e.target.value);
   };
 
-  function filteredData(products, selected, query) {
+  function filteredData(products, selected, query, minPrice, maxPrice) {
     let filteredProducts = products;
-
-    if (!selected) {
-      filteredProducts = filteredItems;
-    }
+    
 
     //filtering input items :
     if (query) {
       filteredProducts = filteredItems;
     }
 
+    if (!selected) {
+      filteredProducts = filteredItems;
+    }
+
+    //filtering price range :
+    filteredProducts = filteredProducts.filter(({ price }) =>
+    price >= minPrice && price <= maxPrice
+  );
+  
     //selected filter :
     if (selected) {
       filteredProducts = filteredProducts.filter(
-        ({ category, brand, product }) =>
-          category === selected || brand === selected || product === selected
+        ({ category, brand, product, price }) =>
+          category === selected ||
+          brand === selected ||
+          product === selected ||
+          price === selected
       );
     }
 
-    return filteredProducts.map(({category}) => ( 
-      <ProductionMainComponent category={category} />
-    ))
+    return filteredProducts.map(
+      ({
+        id,
+        product,
+        brand,
+        picture,
+        header,
+        paragraph,
+        price,
+        currentPrice,
+        code,
+        discount,
+      }) => (
+        <ProductionMainComponent
+          key={Math.random()}
+          product={product}
+          brand={brand}
+          picture={picture}
+          header={header}
+          paragraph={paragraph}
+          price={price}
+          currentPrice={currentPrice}
+          code={code}
+          discount={discount}
+          myRoute={id}
+        />
+      )
+    );
   }
 
-  const result = filteredData(db1, selectedCategory, query)
+  const result = filteredData(db1, selectedCategory, query, minPrice, maxPrice);
+  //--------------------------------------------------------------------------
 
   const contextValue = {
     cartItems,
@@ -118,6 +154,12 @@ const ShopContextProvider = ({ children }) => {
     updateCartItemCount,
     getTotalCartAmount,
     handleClick,
+    handleChange,
+    handleInputChange,
+    minPrice,
+    maxPrice,
+    setMinPrice,
+    setMaxPrice,
     result,
   };
   return (

@@ -17,4 +17,5 @@ export const CatData1 = {
     text16 : "تی-شرت",
     text17 : "کفش",
     text18 : "شلوار",
+    text19 : "همه محصولات"
 }
