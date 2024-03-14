@@ -34,7 +34,7 @@ import { ShopContext } from "../../Context/shop-context";
 const Navbar = () => {
   const [hovered, setHovered] = useState(false);
   const location = useLocation();
-  const {  getTotalItem } = useContext(ShopContext);
+  const { getTotalItem, handleInputChange, query } = useContext(ShopContext);
   //---------------------------------------------
   if (
     location.pathname === "/admindashboard" ||
@@ -130,7 +130,12 @@ const Navbar = () => {
             h="52px"
             display={{ sma1: "none", sma2: "flex", sma3: "flex", lap: "flex" }}
           >
-            <MyInput placeholder="جستجوی محصول" />
+            <MyInput
+              placeholder="جستجوی محصول"
+              value={query}
+              onChange={handleInputChange}
+            />
+
             <InputIconWrapper>
               <LinkIcon alt={Data1.text8} src={MySearch} />
             </InputIconWrapper>
@@ -159,7 +164,11 @@ const Navbar = () => {
               </LinkTextWrapper>
               <LinkIconWrapper>
                 <LinkIcon alt={Data1.text9} src={MyPurchase} />
-               {getTotalItem() > 0 ? <span className="my-shopping-number">{getTotalItem()}</span> : ""}
+                {getTotalItem() > 0 ? (
+                  <span className="my-shopping-number">{getTotalItem()}</span>
+                ) : (
+                  ""
+                )}
               </LinkIconWrapper>
             </MyLink>
             <MyLink

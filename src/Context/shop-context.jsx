@@ -1,10 +1,8 @@
 import React, { createContext, useState } from "react";
 import { db1 } from "../db";
-import "./Cntext.css";
 import ProductionMainComponent from "../Pages/ProductionPage/ProductionMainComponent";
-
+//-----------------------------------------------------------------------------
 export const ShopContext = createContext(null);
-
 const getDefaultCart = () => {
   let cart = {};
   for (let i = 1; i < db1.length + 1; i++) {
@@ -64,21 +62,21 @@ const ShopContextProvider = ({ children }) => {
   //----------------------------------------------------------------------------
   //Filtering production based on category
   //input filter :
+  const filteredItems = db1.filter(
+    (myProduct) =>
+      myProduct.product.toLowerCase().includes(query.toLowerCase()) ||
+      myProduct.category.toLowerCase().includes(query.toLowerCase()) ||
+      myProduct.brand.toLowerCase().includes(query.toLowerCase()) ||
+      myProduct.header.toLowerCase().includes(query.toLowerCase())
+  );
   const handleInputChange = (e) => {
     setQuery(e.target.value);
+    console.log(e.target.value);
   };
-
-  const filteredItems = db1.filter((myProduct) =>
-    myProduct.product
-      .toLocaleLowerCase()
-      .indexOf(query.toLocaleUpperCase() !== -1)
-  );
-
   //radio filter :
   const handleChange = (e) => {
     setSelectedCategory(e.target.value);
   };
-
   //button filter :
   const handleClick = (e) => {
     setSelectedCategory(e.target.value);
@@ -86,11 +84,12 @@ const ShopContextProvider = ({ children }) => {
 
   function filteredData(products, selected, query, minPrice, maxPrice) {
     let filteredProducts = products;
-    
 
     //filtering input items :
     if (query) {
-      filteredProducts = filteredItems;
+      filteredProducts = filteredItems.filter(({ product }) =>
+        product.toLowerCase().includes(query.toLowerCase())
+      );
     }
 
     if (!selected) {
@@ -98,10 +97,10 @@ const ShopContextProvider = ({ children }) => {
     }
 
     //filtering price range :
-    filteredProducts = filteredProducts.filter(({ price }) =>
-    price >= minPrice && price <= maxPrice
-  );
-  
+    filteredProducts = filteredProducts.filter(
+      ({ price }) => price >= minPrice && price <= maxPrice
+    );
+
     //selected filter :
     if (selected) {
       filteredProducts = filteredProducts.filter(
@@ -156,6 +155,7 @@ const ShopContextProvider = ({ children }) => {
     handleClick,
     handleChange,
     handleInputChange,
+    query,
     minPrice,
     maxPrice,
     setMinPrice,
