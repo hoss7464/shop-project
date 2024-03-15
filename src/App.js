@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Sidebar from "./Components/Sidebar/index";
 import Navbar from "./Components/Navbar";
 import LandingPage from "./Pages/LandingPage";
 import Production from "./Pages/ProductionPage";
@@ -16,6 +17,11 @@ import ProductDetails from "./Pages/ProductDetailsPage";
 
 function App() {
   const [token, setToken] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+
+  function toggle() {
+    setIsOpen(!isOpen);
+  }
 
   if (token) {
     sessionStorage.setItem("token", JSON.stringify(token));
@@ -30,8 +36,9 @@ function App() {
   return (
     <>
       <Router>
-        <ScrollToTop />
-        <Navbar />
+        <ScrollToTop  />
+        <Sidebar isOpen={isOpen} toggle={toggle} />
+        <Navbar  toggle={toggle}/>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/production" element={<Production />} />

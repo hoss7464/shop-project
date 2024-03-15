@@ -18,6 +18,7 @@ const ShopContextProvider = ({ children }) => {
   const [query, setQuery] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100000);
+  
   //----------------------------------------------------------------------------
   //Toggle function on hover:
   const toggleHover = () => setHovered(true);

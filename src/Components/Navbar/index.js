@@ -31,7 +31,7 @@ import Category from "../CategoryMenu";
 import { ShopContext } from "../../Context/shop-context";
 //----------------------------------------------------------------------------------------
 
-const Navbar = () => {
+const Navbar = ({toggle}) => {
   const location = useLocation();
   const {
     getTotalItem,
@@ -40,6 +40,7 @@ const Navbar = () => {
     toggleHover,
     toggleHoverLeave,
     hovered,
+
   } = useContext(ShopContext);
   //---------------------------------------------
   if (
@@ -80,7 +81,7 @@ const Navbar = () => {
             }}
             justifyContent="center"
             alignItems="center"
-           
+            onClick={toggle}
           >
             <LinkIcon
               alt={Data1.text10}
