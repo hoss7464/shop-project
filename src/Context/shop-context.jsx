@@ -12,11 +12,16 @@ const getDefaultCart = () => {
 };
 
 const ShopContextProvider = ({ children }) => {
+  const [hovered, setHovered] = useState(false);
   const [cartItems, setCartItems] = useState(getDefaultCart());
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState();
   const [query, setQuery] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100000);
+  //----------------------------------------------------------------------------
+  //Toggle function on hover:
+  const toggleHover = () => setHovered(true);
+  const toggleHoverLeave = () => setHovered(false);
   //----------------------------------------------------------------------------
   //Adding a production into our cart:
   const addToCart = (itemId) => {
@@ -71,12 +76,13 @@ const ShopContextProvider = ({ children }) => {
   );
   const handleInputChange = (e) => {
     setQuery(e.target.value);
-    console.log(e.target.value);
   };
+
   //radio filter :
   const handleChange = (e) => {
     setSelectedCategory(e.target.value);
   };
+
   //button filter :
   const handleClick = (e) => {
     setSelectedCategory(e.target.value);
@@ -146,6 +152,9 @@ const ShopContextProvider = ({ children }) => {
   //--------------------------------------------------------------------------
 
   const contextValue = {
+    toggleHover,
+    toggleHoverLeave,
+    hovered,
     cartItems,
     addToCart,
     removeFromCart,
@@ -154,6 +163,7 @@ const ShopContextProvider = ({ children }) => {
     getTotalCartAmount,
     handleClick,
     handleChange,
+    selectedCategory,
     handleInputChange,
     query,
     minPrice,

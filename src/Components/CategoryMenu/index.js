@@ -14,8 +14,8 @@ import {
 import { CatData1 } from "../../Helpers/CategoryData";
 import { ShopContext } from "../../Context/shop-context";
 
-const Category = ({ toggleHover, toggleHoverLeave }) => {
-  const {handleClick} = useContext(ShopContext);
+const Category = () => {
+  const {handleClick, toggleHover, toggleHoverLeave} = useContext(ShopContext);
 
   return (
     <>

@@ -7,12 +7,12 @@ export const CategoryContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  top: 3.7rem;
+  top: 3.6rem;
   right: 22.3%;
   position: absolute;
   background-color: ${colors.prime3};
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem;
 `;
 
 export const AllCategoryWrapper = styled.div`
@@ -20,11 +20,12 @@ export const AllCategoryWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  border-bottom: solid 2px ${colors.prime4};
+  border-bottom: solid 1px ${colors.prime4};
   margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 `;
 export const AllCategoryLink = styled(Link)`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 900;
   color: ${colors.font1};
   transition: all 0.2s ease-in-out;
@@ -58,8 +59,8 @@ export const CategoryHeaderWrapper = styled.div`
 
 export const CategoryHeader = styled.h1`
   font-weight: 900;
-  color: ${colors.font1};
-  font-size: 20px;
+  color: ${colors.sec1};
+  font-size: 18px;
 `;
 
 export const CategoryLinkWrapper = styled.div`
@@ -69,14 +70,15 @@ export const CategoryLinkWrapper = styled.div`
   flex-direction: column;
   margin-top: 0.5rem;
   width: 100%;
+
 `;
 export const CategoryLinkWrapper2 = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
   width: 100%;
   margin-top: 0.5rem;
+
 `;
 
 export const CategoryLink = styled(Link)`
@@ -84,8 +86,6 @@ export const CategoryLink = styled(Link)`
   font-weight: 500;
   font-size: 16px;
   transition: all 0.5s ease-in-out;
-  padding-top: 8px;
-  padding-bottom: 8px;
   width: 100%;
   text-align: right;
 

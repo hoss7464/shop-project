@@ -15,15 +15,27 @@ export const ProductWrapper = styled.div`
   align-items: flex-start;
   width: 100%;
   min-height: 720px;
-  margin-top: 7%;
   margin-bottom: 2rem;
+
+  @media only screen and (min-width: 280px) and (max-width: 576px) {
+    margin-top: 6rem;
+  }
+  @media only screen and (min-width: 577px) and (max-width: 768px) {
+    margin-top: 6rem;
+  }
+  @media only screen and (min-width: 769px) and (max-width: 992px) {
+    margin-top: 7rem;
+  }
+  @media only screen and (min-width: 1080px) and (max-width: 1920px) {
+    margin-top: 7rem;
+  }
 `;
 
 export const ProductLeftWrapper = styled.div`
-  width: 100%;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   @media only screen and (min-width: 280px) and (max-width: 576px) {
     width: 100%;
@@ -37,6 +49,70 @@ export const ProductLeftWrapper = styled.div`
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
     width: calc(100% - 260px);
   }
+`;
+
+export const ProductLeftFilterWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  @media only screen and (min-width: 280px) and (max-width: 576px) {
+    display: flex;
+  }
+  @media only screen and (min-width: 577px) and (max-width: 768px) {
+    display: flex;
+  }
+  @media only screen and (min-width: 769px) and (max-width: 992px) {
+    display: none;
+  }
+  @media only screen and (min-width: 1080px) and (max-width: 1920px) {
+    display: none;
+  }
+`;
+
+export const ProductSelectWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+`;
+
+export const ProductSelectWrapper2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  position: relative;
+  
+`;
+
+export const ProductSelectParaWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+`
+
+export const ProductSelectPara = styled.p`
+ color: ${colors.font3};
+ font-size: 12px;
+`
+
+export const ProductMobileInputFilterWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+
+export const ProductResultWrapper = styled.div`
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 `;
 
 export const ProductRightWrapper = styled.div`
@@ -130,9 +206,9 @@ export const ProductInputFilterLabelWrapper = styled.div`
 `;
 
 export const ProductInputFilterLabel = styled.label`
-color: ${colors.font1};
-font-size: 12px;
-`
+  color: ${colors.font3};
+  font-size: 12px;
+`;
 export const ProductInputFilterWrapper3 = styled.div`
   display: flex;
   justify-content: center;

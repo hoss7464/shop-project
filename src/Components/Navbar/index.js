@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import { useLocation } from "react-router-dom";
 import {
@@ -32,9 +32,15 @@ import { ShopContext } from "../../Context/shop-context";
 //----------------------------------------------------------------------------------------
 
 const Navbar = () => {
-  const [hovered, setHovered] = useState(false);
   const location = useLocation();
-  const { getTotalItem, handleInputChange, query } = useContext(ShopContext);
+  const {
+    getTotalItem,
+    handleInputChange,
+    query,
+    toggleHover,
+    toggleHoverLeave,
+    hovered,
+  } = useContext(ShopContext);
   //---------------------------------------------
   if (
     location.pathname === "/admindashboard" ||
@@ -44,9 +50,6 @@ const Navbar = () => {
 
   const theme = extendTheme({ breakpoints });
 
-  const toggleHover = () => setHovered(true);
-  const toggleHoverLeave = () => setHovered(false);
-
   return (
     <ChakraProvider theme={theme}>
       <Flex
@@ -55,7 +58,7 @@ const Navbar = () => {
         alignItems="center"
         flexDirection={{ sma1: "column", sma2: "row", sma3: "row", lap: "row" }}
         w="100%"
-        h={{ sma2: "80px", sma3: "80px", lap: "80px" }}
+        h={{ sma1: "80px", sma2: "80px", sma3: "80px", lap: "80px" }}
         bg={colors.prime3}
         position="fixed"
         pl={{ sma1: "1.5rem", sma2: "2.5rem", sma3: "3.5rem", lap: "3rem" }}
@@ -77,17 +80,21 @@ const Navbar = () => {
             }}
             justifyContent="center"
             alignItems="center"
+           
           >
-            <LinkIcon alt={Data1.text10} src={MyMenu} />
+            <LinkIcon
+              alt={Data1.text10}
+              src={MyMenu}
+              style={{ width: "33px", height: "33px" }}
+            />
           </Box>
 
           <Flex
-            pt="7px"
-            pb="7px"
-            pr="5px"
+            pt="4px"
+            pb="4px"
+            pr="4px"
             pl="16px"
             borderRadius="8px"
-            h="52px"
             display={{
               base: "none",
               sma1: "none",
@@ -95,10 +102,10 @@ const Navbar = () => {
               sma3: "none",
               lap: "flex",
             }}
-            border="solid 2px"
+            border="solid 1px"
             borderColor={colors.prime4}
           >
-            <MyLink to="/signup" style={{ marginRight: "1.5rem" }}>
+            <MyLink to="/signup" style={{ marginRight: "1rem" }}>
               <LinkTextWrapper>
                 <LinkText>{Data1.text1}</LinkText>
               </LinkTextWrapper>
@@ -118,17 +125,16 @@ const Navbar = () => {
 
           <Flex
             borderRadius="8px"
-            pt="7px"
-            pb="7px"
-            pr="5px"
-            pl="16px"
+            pt="4px"
+            pb="4px"
+            pr="4px"
+            pl="4px"
             justifyContent="center"
             alignItems="center"
             flexDirection="row"
-            border="solid 2px"
+            border="solid 1px"
             borderColor={colors.prime4}
-            h="52px"
-            display={{ sma1: "none", sma2: "flex", sma3: "flex", lap: "flex" }}
+            display="flex"
           >
             <MyInput
               placeholder="جستجوی محصول"
@@ -142,14 +148,13 @@ const Navbar = () => {
           </Flex>
 
           <Flex
-            pt="7px"
-            pb="7px"
-            pr="5px"
+            pt="4px"
+            pb="4px"
+            pr="4px"
             pl="16px"
-            border="solid 2px"
+            border="solid 1px"
             borderColor={colors.prime4}
             borderRadius="8px"
-            h="52px"
             display={{
               base: "none",
               sma1: "none",
@@ -158,7 +163,7 @@ const Navbar = () => {
               lap: "flex",
             }}
           >
-            <MyLink to="/purchase" style={{ marginRight: "1.5rem" }}>
+            <MyLink to="/purchase" style={{ marginRight: "1rem" }}>
               <LinkTextWrapper>
                 <LinkText>{Data1.text3}</LinkText>
               </LinkTextWrapper>
@@ -172,7 +177,7 @@ const Navbar = () => {
               </LinkIconWrapper>
             </MyLink>
             <MyLink
-              style={{ marginRight: "1.5rem" }}
+              style={{ marginRight: "1rem" }}
               onMouseEnter={toggleHover}
               onMouseLeave={toggleHoverLeave}
             >
@@ -183,12 +188,7 @@ const Navbar = () => {
                 <LinkIcon alt={Data1.text10} src={MyMenu} />
               </LinkIconWrapper>
             </MyLink>
-            {hovered && (
-              <Category
-                toggleHover={toggleHover}
-                toggleHoverLeave={toggleHoverLeave}
-              />
-            )}
+            {hovered && <Category />}
 
             <MyLink to="/">
               <LinkTextWrapper>
@@ -204,36 +204,6 @@ const Navbar = () => {
             <Logo1 alt={Data1.text12} src={MyLogo1} />
           </Center>
         </Flex>
-
-        <Box
-          w="100%"
-          display={{
-            base: "none",
-            sma1: "flex",
-            sma2: "none",
-            sma3: "none",
-            lap: "none",
-          }}
-        >
-          <Flex
-            bg={colors.prime3}
-            borderRadius="55px"
-            p="6px"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="row"
-            position="relative"
-            h="52px"
-            w="100%"
-            mt="1rem"
-            mb="0.5rem"
-          >
-            <MyInput />
-            <InputIconWrapper>
-              <LinkIcon alt={Data1.text8} src={MySearch} />
-            </InputIconWrapper>
-          </Flex>
-        </Box>
       </Flex>
     </ChakraProvider>
   );
