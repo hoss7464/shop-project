@@ -47,7 +47,7 @@ const SignIn = ({ setToken }) => {
 
       onSubmitProps.resetForm();
       setToken(data);
-      navigate("/userprofile");
+      navigate("/userprofile/userorders");
     } catch (error) {
       alert(error);
     }

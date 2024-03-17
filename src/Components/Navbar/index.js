@@ -31,7 +31,7 @@ import Category from "../CategoryMenu";
 import { ShopContext } from "../../Context/shop-context";
 //----------------------------------------------------------------------------------------
 
-const Navbar = ({toggle}) => {
+const Navbar = () => {
   const location = useLocation();
   const {
     getTotalItem,
@@ -40,12 +40,18 @@ const Navbar = ({toggle}) => {
     toggleHover,
     toggleHoverLeave,
     hovered,
-
+    toggle
   } = useContext(ShopContext);
   //---------------------------------------------
   if (
     location.pathname === "/admindashboard" ||
-    location.pathname === "/userprofile"
+    location.pathname === "/userprofile/" ||
+    location.pathname === "/userprofile/userprofile" ||
+    location.pathname === "/userprofile/userorders" ||
+    location.pathname === "/userprofile/usercomments" ||
+    location.pathname === "/userprofile/useraddress" ||
+    location.pathname === "/userprofile/userservices" ||
+    location.pathname === "/userprofile/useraccount" 
   )
     return null;
 

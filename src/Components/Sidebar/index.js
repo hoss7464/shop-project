@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Sidebar.css";
 import {
   SidebarContainer,
@@ -7,11 +7,12 @@ import {
   SideLink,
 } from "./SidebarElements";
 import { useLocation } from "react-router-dom";
-
+import { ShopContext } from "../../Context/shop-context";
 import { SidebarData1 } from "../../Helpers/SidebarData";
 
-function Sidebar({ isOpen, toggle }) {
+function Sidebar() {
   const Location = useLocation();
+  const { isOpen, toggle } = useContext(ShopContext);
 
   return (
     <>

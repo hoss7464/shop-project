@@ -12,6 +12,8 @@ const getDefaultCart = () => {
 };
 
 const ShopContextProvider = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen2, setIsOpen2] = useState(false)
   const [hovered, setHovered] = useState(false);
   const [cartItems, setCartItems] = useState(getDefaultCart());
   const [selectedCategory, setSelectedCategory] = useState();
@@ -19,6 +21,15 @@ const ShopContextProvider = ({ children }) => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100000);
   
+  //----------------------------------------------------------------------------
+  //Toggle function on click :
+  function toggle () {
+    setIsOpen(!isOpen)
+  }
+
+  function toggle2 () {
+    setIsOpen2((prev) => !prev)
+  }
   //----------------------------------------------------------------------------
   //Toggle function on hover:
   const toggleHover = () => setHovered(true);
@@ -172,6 +183,10 @@ const ShopContextProvider = ({ children }) => {
     setMinPrice,
     setMaxPrice,
     result,
+    toggle,
+    isOpen,
+    toggle2,
+    isOpen2,
   };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
