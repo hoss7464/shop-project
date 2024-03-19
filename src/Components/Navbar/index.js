@@ -45,6 +45,7 @@ const Navbar = () => {
   //---------------------------------------------
   if (
     location.pathname === "/admindashboard" ||
+    location.pathname === "/userprofile" ||
     location.pathname === "/userprofile/" ||
     location.pathname === "/userprofile/userprofile" ||
     location.pathname === "/userprofile/userorders" ||

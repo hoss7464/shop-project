@@ -51,15 +51,14 @@ function App() {
           <Route path="/signin" element={<SignIn setToken={setToken} />} />
           <Route path="/signup" element={<SignUp />} />
            
-           {token ? (
-            <Route path="/userprofile" element={<UserProfile setToken={setToken} />}>
+          <Route path="/userprofile" element={<UserProfile setToken={setToken} />}>
             <Route path="userorders" element={<UserOrders />} />
             <Route path="usercomments" element={<UserComments />} />
             <Route path="useraddress" element={<UserAddress />} />
             <Route path="userservices" element={<UserServices />} />
             <Route path="useraccount" element={<UserAccount />} />
           </Route>
-           ) : ("")}
+           
           
 
           <Route path="/forgetpassword" element={<ForgetPass />} />

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "../UserProfile.css"
 import {
   UserShrinkBtnWrapper,
   UserShrinkBtnWrapper2,

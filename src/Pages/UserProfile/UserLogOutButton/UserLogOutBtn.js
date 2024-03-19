@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import {
-  UserShrinkBtnWrapper,
+  UserLogOutBtnWrapper,
   UserShrinkBtnWrapper2,
   UserShrinkBtnIconWrapper,
   UserShrinkBtnIcon,
@@ -14,7 +14,7 @@ const UserLogOutBtn = ({handleLogout}) => {
   const { isOpen2 } = useContext(ShopContext);
   return (
     <>
-      <UserShrinkBtnWrapper>
+      <UserLogOutBtnWrapper>
         <UserShrinkBtnWrapper2 onClick={handleLogout} >
           <UserShrinkBtnTextWrapper>
             <UserShrinkBtnText>{isOpen2 ? "" : "خروج"}</UserShrinkBtnText>
@@ -27,7 +27,7 @@ const UserLogOutBtn = ({handleLogout}) => {
             />
           </UserShrinkBtnIconWrapper>
         </UserShrinkBtnWrapper2>
-      </UserShrinkBtnWrapper>
+      </UserLogOutBtnWrapper>
     </>
   );
 };

@@ -14,6 +14,7 @@ const getDefaultCart = () => {
 const ShopContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isOpen2, setIsOpen2] = useState(false)
+  const [isOpen3, setIsOpen3] = useState(false)
   const [hovered, setHovered] = useState(false);
   const [cartItems, setCartItems] = useState(getDefaultCart());
   const [selectedCategory, setSelectedCategory] = useState();
@@ -29,6 +30,10 @@ const ShopContextProvider = ({ children }) => {
 
   function toggle2 () {
     setIsOpen2((prev) => !prev)
+  }
+
+  function toggle3 () {
+    setIsOpen3(!isOpen3)
   }
   //----------------------------------------------------------------------------
   //Toggle function on hover:
@@ -187,6 +192,9 @@ const ShopContextProvider = ({ children }) => {
     isOpen,
     toggle2,
     isOpen2,
+    setIsOpen2,
+    toggle3,
+    isOpen3
   };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
