@@ -92,6 +92,10 @@ export const UserGlobalWrapper = styled.div`
   height: 100%;
   background-color: ${colors.font2};
   transition: 0.2s ease-in-out;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+
   @media only screen and (min-width: 280px) and (max-width: 576px) {
     border-radius: 0;
     width: 100%;
@@ -110,9 +114,10 @@ export const UserGlobalWrapper = styled.div`
     position: relative;
   }
   @media only screen and (min-width: 1080px) and (max-width: 1920px) {
-    border-radius: 24px;
+    border-radius: 16px;
     width: ${({ isOpen2 }) =>
       isOpen2 ? "calc(100% - 72px)" : "calc(100% - 250px)"};
+
   }
 `;
 //-----------------------------------------------------------------
@@ -408,13 +413,14 @@ export const HambergurMenuWrapper = styled.div`
   padding: 0.5rem;
   background-color: ${colors.prime1};
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 1.6rem;
+  left: 1.6rem;
   cursor: pointer;
+  
 
   @media only screen and (min-width: 280px) and (max-width: 576px) {
     display: flex;
-    border-radius: 8px;
+    border-radius: 50%;
   }
   @media only screen and (min-width: 577px) and (max-width: 768px) {
     display: none;

@@ -48,7 +48,12 @@ const PurchaseComponent1 = ({ myAlt1, myImg1, myHeader, myPrice, myId }) => {
               <CounterInputWrapper>
                 <CounterInput
                   value={cartItems[myId]}
-                  onChange={(e) => updateCartItemCount(Number(e.target.value), myId)}
+                  onChange={(e) => {
+                    const newValue = parseInt(e.target.value);
+                    if (!isNaN(newValue)) {
+                      updateCartItemCount(newValue, myId);
+                    }
+                  }}
                 />
               </CounterInputWrapper>
               <CounterBtnWrapper>

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { db1 } from "../db";
 import ProductionMainComponent from "../Pages/ProductionPage/ProductionMainComponent";
 //-----------------------------------------------------------------------------
@@ -12,28 +12,41 @@ const getDefaultCart = () => {
 };
 
 const ShopContextProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isOpen2, setIsOpen2] = useState(false)
-  const [isOpen3, setIsOpen3] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
+  const [isOpen4, setIsOpen4] = useState(false);
+  const [isOpen5, setIsOpen5] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const [cartItems, setCartItems] = useState(getDefaultCart());
+  const [cartItems, setCartItems] = useState(() => {
+    const localData = localStorage.getItem("cartItems");
+    return localData ? JSON.parse(localData) : getDefaultCart();
+  });
   const [selectedCategory, setSelectedCategory] = useState();
   const [query, setQuery] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100000);
-  
+
   //----------------------------------------------------------------------------
   //Toggle function on click :
-  function toggle () {
-    setIsOpen(!isOpen)
+  function toggle() {
+    setIsOpen(!isOpen);
   }
 
-  function toggle2 () {
-    setIsOpen2((prev) => !prev)
+  function toggle2() {
+    setIsOpen2((prev) => !prev);
   }
 
-  function toggle3 () {
-    setIsOpen3(!isOpen3)
+  function toggle3() {
+    setIsOpen3(!isOpen3);
+  }
+
+  function toggle4() {
+    setIsOpen4(!isOpen4);
+  }
+
+  function toggle5() {
+    setIsOpen5(!isOpen5);
   }
   //----------------------------------------------------------------------------
   //Toggle function on hover:
@@ -49,6 +62,12 @@ const ShopContextProvider = ({ children }) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
+
+  // Save cart items to localStorage whenever cartItems change
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
   //----------------------------------------------------------------------------
   //Display the count of selected productions on navbar addToCart button
   const getTotalItem = () => {
@@ -166,6 +185,7 @@ const ShopContextProvider = ({ children }) => {
   }
 
   const result = filteredData(db1, selectedCategory, query, minPrice, maxPrice);
+
   //--------------------------------------------------------------------------
 
   const contextValue = {
@@ -173,6 +193,7 @@ const ShopContextProvider = ({ children }) => {
     toggleHoverLeave,
     hovered,
     cartItems,
+    setCartItems,
     addToCart,
     removeFromCart,
     getTotalItem,
@@ -194,7 +215,11 @@ const ShopContextProvider = ({ children }) => {
     isOpen2,
     setIsOpen2,
     toggle3,
-    isOpen3
+    isOpen3,
+    toggle4,
+    isOpen4,
+    toggle5,
+    isOpen5,
   };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>

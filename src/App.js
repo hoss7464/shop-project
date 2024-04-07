@@ -31,7 +31,6 @@ function App() {
     if (sessionStorage.getItem("token")) {
       let data = JSON.parse(sessionStorage.getItem("token"));
       setToken(data);
-      console.log(data)
     }
     
   }, []);
@@ -57,7 +56,8 @@ function App() {
             <Route path="useraddress" element={<UserAddress />} />
             <Route path="userservices" element={<UserServices />} />
             <Route path="useraccount" element={<UserAccount />} />
-          </Route>
+          </Route> 
+          
            
           
 

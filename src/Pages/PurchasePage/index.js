@@ -20,6 +20,7 @@ import { PurchasePageData1 } from "../../Helpers/PurchasePageData";
 const Purchase = () => {
   const { cartItems, getTotalCartAmount } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
+
   return (
     <>
       <Container1>
