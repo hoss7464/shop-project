@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { db1 } from "../../../../db";
 import {
   OrdersContainer,
@@ -15,6 +15,8 @@ import {
   OrderMiniSearchIcon,
   OrderFilterWrapper,
   OrderFilterDropdownWrapper,
+  OrderSortBtnWrapper,
+  OrderSortBtn,
   OrderFilterTextWrapper,
   OrderFilterText,
   OrderFilterIconWrapper,
@@ -27,14 +29,40 @@ import MyOrderFilterIcon from "../../../../Assets/Svg/OrderFilterIcon.svg";
 import { UserProfileData1 } from "../../../../Helpers/UserProfileData";
 import UserOrdersComponent from "./UserOrdersComponent";
 
+//We put these outside the component to prevent changing the time when sorting the itmes
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString("fa-IR");
+const formattedTime = currentDate.toLocaleTimeString("fa-IR");
 
 const UserOrders = () => {
-  const { toggle4, isOpen4, toggle5, isOpen5, cartItems } =
-    useContext(ShopContext);
+  const [searchQuery, setSearchQuery] = useState("");
+  const {
+    toggle4,
+    isOpen4,
+    toggle5,
+    isOpen5,
+    cartItems,
+    handleSort,
+    sortOrder,
+  } = useContext(ShopContext);
 
-    const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString("fa-IR");
-    const formattedTime = currentDate.toLocaleTimeString("fa-IR");
+  const handleSearchInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  //Filtering and adding items if the id > 0
+  const filteredProducts = db1.filter((myData2) => cartItems[myData2.id] > 0);
+
+  // Sort the products based on sortOrder
+  const sortedProducts =
+    sortOrder === "expensive"
+      ? [...filteredProducts].sort((a, b) => b.price - a.price)
+      : [...filteredProducts].sort((a, b) => a.price - b.price);
+
+  // Filter the products based on searchQuery
+  const filteredAndSortedProducts = sortedProducts.filter((product) =>
+    product.product.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <>
@@ -43,7 +71,11 @@ const UserOrders = () => {
           <OrdersNavbar>
             <OrderSearchWrapper>
               <OrderSerachInputWrapper>
-                <OrderSearchInput placeholder="جستجو" />
+                <OrderSearchInput
+                  placeholder="جستجو"
+                  value={searchQuery}
+                  onChange={handleSearchInputChange}
+                />
               </OrderSerachInputWrapper>
               <OrderSearchIconWrapper>
                 <OrderSearchIcon alt="search icon" src={MySearchIcon2} />
@@ -71,31 +103,41 @@ const UserOrders = () => {
                 <OrderSearchInput
                   placeholder="جستجو"
                   style={{ height: "28px" }}
+                  value={searchQuery}
+                  onChange={handleSearchInputChange}
                 />
               </OrderSerachInputWrapper>
             </OrderMiniSearchInputWrapper>
           )}
 
-          {isOpen4 && <OrderFilterDropdownWrapper></OrderFilterDropdownWrapper>}
+          {isOpen4 && (
+            <OrderFilterDropdownWrapper>
+              <OrderSortBtnWrapper style={{ marginBottom: "0.5rem" }}>
+                <OrderSortBtn onClick={() => handleSort("expensive")}>
+                  گران ترین
+                </OrderSortBtn>
+              </OrderSortBtnWrapper>
+              <OrderSortBtnWrapper>
+                <OrderSortBtn onClick={() => handleSort("cheap")}>
+                  ارزان ترین
+                </OrderSortBtn>
+              </OrderSortBtnWrapper>
+            </OrderFilterDropdownWrapper>
+          )}
 
           <OrderComponentMainWrapper>
-          {db1.map((myData2, index) => {
-                if (cartItems[myData2.id] > 0) {
-                  return (
-                    <UserOrdersComponent
-                      key={index}
-                      productImg={myData2.picture}
-                      orderPrice={myData2.price}
-                      orderType="تحویل / جاری"
-                      orderDate={formattedDate} 
-                      orderTime={formattedTime}
-                      productName={myData2.product}
-                      orderCode={Math.floor(Math.random() * 900) + 100}
-
-                    />
-                  );
-                }
-              })}
+            {filteredAndSortedProducts.map((myData2, index) => (
+              <UserOrdersComponent
+                key={index}
+                productImg={myData2.picture}
+                orderPrice={myData2.price}
+                orderType="تحویل / جاری"
+                orderDate={formattedDate}
+                orderTime={formattedTime}
+                productName={myData2.product}
+                orderCode={Math.floor(Math.random() * 900) + 100}
+              />
+            ))}
           </OrderComponentMainWrapper>
         </OrdersWrapper>
       </OrdersContainer>

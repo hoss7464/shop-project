@@ -26,6 +26,7 @@ const ShopContextProvider = ({ children }) => {
   const [query, setQuery] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100000);
+  const [sortOrder, setSortOrder] = useState("cheap");
 
   //----------------------------------------------------------------------------
   //Toggle function on click :
@@ -124,6 +125,11 @@ const ShopContextProvider = ({ children }) => {
     setSelectedCategory(e.target.value);
   };
 
+  //Sort function :
+  const handleSort = (order) => {
+    setSortOrder(order);
+  };
+
   function filteredData(products, selected, query, minPrice, maxPrice) {
     let filteredProducts = products;
 
@@ -220,6 +226,8 @@ const ShopContextProvider = ({ children }) => {
     isOpen4,
     toggle5,
     isOpen5,
+    handleSort,
+    sortOrder,
   };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
