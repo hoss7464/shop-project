@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { db1 } from "../../../../db";
+import React, { useContext} from "react";
 import {
   OrdersContainer,
   OrdersWrapper,
@@ -29,40 +28,20 @@ import MyOrderFilterIcon from "../../../../Assets/Svg/OrderFilterIcon.svg";
 import { UserProfileData1 } from "../../../../Helpers/UserProfileData";
 import UserOrdersComponent from "./UserOrdersComponent";
 
-//We put these outside the component to prevent changing the time when sorting the itmes
-const currentDate = new Date();
-const formattedDate = currentDate.toLocaleDateString("fa-IR");
-const formattedTime = currentDate.toLocaleTimeString("fa-IR");
 
 const UserOrders = () => {
-  const [searchQuery, setSearchQuery] = useState("");
   const {
     toggle4,
     isOpen4,
     toggle5,
     isOpen5,
-    cartItems,
     handleSort,
-    sortOrder,
+    formattedDate,
+    formattedTime,
+    handleSearchInputChange,
+    filteredAndSortedProducts,
+    searchQuery,
   } = useContext(ShopContext);
-
-  const handleSearchInputChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  //Filtering and adding items if the id > 0
-  const filteredProducts = db1.filter((myData2) => cartItems[myData2.id] > 0);
-
-  // Sort the products based on sortOrder
-  const sortedProducts =
-    sortOrder === "expensive"
-      ? [...filteredProducts].sort((a, b) => b.price - a.price)
-      : [...filteredProducts].sort((a, b) => a.price - b.price);
-
-  // Filter the products based on searchQuery
-  const filteredAndSortedProducts = sortedProducts.filter((product) =>
-    product.product.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
     <>
@@ -81,6 +60,7 @@ const UserOrders = () => {
                 <OrderSearchIcon alt="search icon" src={MySearchIcon2} />
               </OrderSearchIconWrapper>
             </OrderSearchWrapper>
+
             <OrderFilterMiniSearchWrapper>
               <OrderMiniSearchIconWrapper onClick={toggle5}>
                 <OrderMiniSearchIcon alt="mini search" src={MySearchIcon2} />
@@ -135,7 +115,7 @@ const UserOrders = () => {
                 orderDate={formattedDate}
                 orderTime={formattedTime}
                 productName={myData2.product}
-                orderCode={Math.floor(Math.random() * 900) + 100}
+                orderCode={myData2.id + 10}
               />
             ))}
           </OrderComponentMainWrapper>

@@ -3,6 +3,8 @@ import { db1 } from "../db";
 import ProductionMainComponent from "../Pages/ProductionPage/ProductionMainComponent";
 //-----------------------------------------------------------------------------
 export const ShopContext = createContext(null);
+//-----------------------------------------------------------------------------
+//Setting all ids in array of product equal to 0
 const getDefaultCart = () => {
   let cart = {};
   for (let i = 1; i < db1.length + 1; i++) {
@@ -10,6 +12,13 @@ const getDefaultCart = () => {
   }
   return cart;
 };
+//-----------------------------------------------------------------------------
+//Setting Local time and date for choosen product in userprofile/orders page
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString("fa-IR");
+const formattedTime = currentDate.toLocaleTimeString("fa-IR");
+
+//-----------------------------------------------------------------------------
 
 const ShopContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +36,8 @@ const ShopContextProvider = ({ children }) => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100000);
   const [sortOrder, setSortOrder] = useState("cheap");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
   //----------------------------------------------------------------------------
   //Toggle function on click :
@@ -193,6 +204,64 @@ const ShopContextProvider = ({ children }) => {
   const result = filteredData(db1, selectedCategory, query, minPrice, maxPrice);
 
   //--------------------------------------------------------------------------
+  //Function for filtering chosen items in userprofile
+  const handleSearchInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+  //Filtering and adding items if the id > 0
+  const filteringProducts = db1.filter((myData2) => cartItems[myData2.id] > 0);
+
+  // Sort the products based on sortOrder
+  const sortedProducts =
+    sortOrder === "expensive"
+      ? [...filteringProducts].sort((a, b) => b.price - a.price)
+      : [...filteringProducts].sort((a, b) => a.price - b.price);
+
+  // Filter the products based on searchQuery
+  const filteredAndSortedProducts = sortedProducts.filter((product) =>
+    product.product.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  //--------------------------------------------------------------------------
+  //Function to toggle choosen product for delete process in userprofile/usercomments page
+  const toggleProductSelection = (productId) => {
+    setSelectedProducts((prevSelectedProducts) => {
+      if (prevSelectedProducts.includes(productId)) {
+        return prevSelectedProducts.filter((id) => id !== productId);
+      } else {
+        return [...prevSelectedProducts, productId];
+      }
+    });
+  };
+
+  // Function to delete  selected products more than one product(delete by delete icon on navbar) in userprofile/usercomments page
+  const deleteSelectedProducts = () => {
+    const updatedCartItems = { ...cartItems };
+    selectedProducts.forEach((productId) => {
+      // Set the value of selected product ID to 0
+      updatedCartItems[productId] = 0;
+    });
+
+    // Update the local storage with the modified cart items
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
+    // Update the state
+    setCartItems(updatedCartItems);
+    setSelectedProducts([]);
+  };
+
+  // Function to delete product by its ID when we choose one prduct to delete in userprofile/usercomments page
+  const deleteProductById = (productId) => {
+    const updatedCartItems = { ...cartItems };
+    updatedCartItems[productId] = 0;
+
+    // Update the local storage with the modified cart items
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
+    // Update the state
+    setCartItems(updatedCartItems);
+  };
+
+  //--------------------------------------------------------------------------
 
   const contextValue = {
     toggleHover,
@@ -228,6 +297,15 @@ const ShopContextProvider = ({ children }) => {
     isOpen5,
     handleSort,
     sortOrder,
+    formattedDate,
+    formattedTime,
+    handleSearchInputChange,
+    filteredAndSortedProducts,
+    searchQuery,
+    selectedProducts,
+    toggleProductSelection,
+    deleteSelectedProducts,
+    deleteProductById,
   };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>

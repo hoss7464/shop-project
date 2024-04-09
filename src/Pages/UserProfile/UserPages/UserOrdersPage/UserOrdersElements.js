@@ -117,7 +117,7 @@ export const OrderMiniSearchInputWrapper = styled.div`
   align-items: center;
   position: absolute;
   top: 3rem;
-  right: 7rem;
+  right: 10%;
   padding: 0.3rem;
   background-color: ${colors.prime3};
   border: solid 1px ${colors.prime1};
@@ -251,6 +251,7 @@ export const OrderComponentContentWrapper = styled.div`
     flex-direction: row;
   }
 `;
+
 export const OrderComponentsContentColumn1 = styled.div`
   display: flex;
   justify-content: center;
