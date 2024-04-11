@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   CommentComponentWrapper,
   CommentComponent3IconsWrapper,
@@ -15,6 +15,11 @@ import {
   CommentIcon,
   CommentImgWrapper,
   CommentImg,
+  CommentTextHolder,
+  CommentTextTopicWrapper,
+  CommentTextTopic,
+  CommentTextParaWrapper,
+  CommentTextPara,
 } from "./CommentsElements";
 import { ShopContext } from "../../../../Context/shop-context";
 import MyTrashIcon2 from "../../../../Assets/Svg/TrashIcon2.svg";
@@ -27,8 +32,15 @@ const UserCommentComponent = ({
   productCategory,
   productId,
 }) => {
-  const { selectedProducts, toggleProductSelection, deleteProductById } =
-    useContext(ShopContext);
+  const {
+    selectedProducts,
+    toggleProductSelection,
+    deleteProductById,
+    toggle6,
+    formData
+  } = useContext(ShopContext);
+  //We need to use this state in this component not in context because of several popup rendering
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleCheckboxChange = () => {
     toggleProductSelection(productId);
@@ -40,6 +52,14 @@ const UserCommentComponent = ({
       deleteProductById(productId); // Call deleteProductById with productId
     }
   };
+
+  const handlePopupToggle = () => {
+    setShowPopup(!showPopup);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('formData', JSON.stringify(formData));
+  }, [formData]);
   return (
     <>
       <CommentComponentWrapper>
@@ -55,7 +75,7 @@ const UserCommentComponent = ({
             <CommentComponent3IconsWrapper3 onClick={handleDeleteClick}>
               <CommentComponent3Icons alt="trash icon" src={MyTrashIcon2} />
             </CommentComponent3IconsWrapper3>
-            <CommentComponent3IconsWrapper3>
+            <CommentComponent3IconsWrapper3 onClick={toggle6}>
               <CommentComponent3Icons alt="comment icon" src={MyCommentIcon1} />
             </CommentComponent3IconsWrapper3>
           </CommentComponent3IconsWrapper2>
@@ -65,10 +85,20 @@ const UserCommentComponent = ({
           <CommentImgWrapper>
             <CommentImg alt="product picture" src={productPicture} />
           </CommentImgWrapper>
-          <CommentIconWrapper>
+          <CommentIconWrapper onClick={handlePopupToggle}>
             <CommentIconWrapper2>
               <CommentIcon alt="comment icon" src={myCommentMenu1} />
             </CommentIconWrapper2>
+            {showPopup && (
+              <CommentTextHolder>
+                <CommentTextTopicWrapper>
+                  <CommentTextTopic>{formData.inputText}</CommentTextTopic>
+                </CommentTextTopicWrapper>
+                <CommentTextParaWrapper>
+                  <CommentTextPara>{formData.textareaText}</CommentTextPara>
+                </CommentTextParaWrapper>
+              </CommentTextHolder>
+            )}
           </CommentIconWrapper>
           <CommentParaWrapper>
             <CommentPara>{productName}</CommentPara>

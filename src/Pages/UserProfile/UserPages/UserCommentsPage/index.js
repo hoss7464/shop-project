@@ -30,6 +30,7 @@ import MySearchIcon2 from "../../../../Assets/Svg/SearchIcon2.svg";
 import { UserProfileData1 } from "../../../../Helpers/UserProfileData";
 import myTrashIcon1 from "../../../../Assets/Svg/TrashIcon1.svg";
 import UserCommentComponent from "./UserCommentComponent";
+import Popup from "./Popup";
 
 const UserComments = () => {
   const {
@@ -39,6 +40,7 @@ const UserComments = () => {
     filteredAndSortedProducts,
     searchQuery,
     deleteSelectedProducts,
+    isOpen6,
   } = useContext(ShopContext);
 
   const handleDeleteAllClick = () => {
@@ -118,6 +120,8 @@ const UserComments = () => {
               />
             ))}
           </CommentComponentMainWrapper>
+          {isOpen6 && <Popup />}
+          
         </CommentsWrapper>
       </CommentsContainer>
     </>

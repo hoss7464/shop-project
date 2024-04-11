@@ -158,6 +158,7 @@ export const CommentComponentContentWrapper = styled.div`
   justify-content: flex-end;
   width: 90%;
   height: 100%;
+  position: relative;
 
   @media only screen and (min-width: 280px) and (max-width: 768px) {
     flex-direction: column;
@@ -242,3 +243,189 @@ export const CommentImg = styled.img`
   object-fit: cover;
 `;
 //-----------------------------------------------------------------
+export const PopupContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 659px;
+  z-index: 10;
+`;
+
+export const PupupMainWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: rgba(226, 232, 247, 0.2);
+  backdrop-filter: blur(20px);
+  width: 100%;
+  height: 100%;
+`;
+
+export const PupupCloseBtnWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+`;
+
+export const PupupCloseBtn = styled.img`
+  width: 32px;
+  height: 32px;
+`;
+//------------------------------------------------------------------------
+export const CommentFormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+`;
+
+export const CommentFormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  background-color: ${colors.prime3};
+  border-radius: 8px;
+  width: 500px;
+`;
+
+export const CommentNav = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: solid 2px ${colors.font3};
+`;
+export const CommentNavTextIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const CommentNavTextWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+`;
+export const CommentNavText = styled.p`
+  font-size: 16px;
+  font-weight: 600;
+  color: ${colors.font1};
+`;
+export const CommentNavIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const CommentNavIcon = styled.img`
+  width: 32px;
+  height: 32px;
+`;
+
+export const MyCommentForm = styled.form`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 100%;
+`;
+export const CommentInputWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+`;
+export const CommentInput = styled.input`
+  width: 100%;
+  height: 32px;
+  border: solid 2px ${colors.font3};
+  outline: none;
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 0.5rem;
+  text-align: right;
+
+`;
+export const CommentTextareaWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+`;
+
+export const CommentTextarea = styled.textarea`
+  width: 100%;
+  height: 350px;
+  border: solid 2px ${colors.font3};
+  outline: none;
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 0.5rem;
+  text-align: right;
+
+
+`;
+
+export const CommentFormSubmitBtn = styled.button`
+  padding: 8px 24px;
+  border: none;
+  background-color: ${colors.sec2};
+  color: ${colors.sec3};
+  font-size: 15px;
+  font-weight: 300;
+  border-radius: 8px;
+`;
+//----------------------------------------------------------------------
+export const CommentTextHolder= styled.div`
+display: flex;
+justify-content: flex-start;
+align-items: flex-end;
+flex-direction: column;
+width: 300px;
+min-height: 300px;
+background-color: ${colors.prime3};
+border-radius: 4px;
+position: absolute;
+top: 5rem;
+z-index: 5;
+padding: 0.5rem;
+`
+
+export const CommentTextTopicWrapper = styled.div`
+display: flex;
+justify-content: flex-end;
+align-items: center;
+width: 100%;
+margin-bottom: 1rem;
+`
+export const CommentTextTopic = styled.p`
+font-size: 14px;
+font-weight: 500;
+color: ${colors.font1};
+`
+export const CommentTextParaWrapper = styled.div`
+display: flex;
+justify-content: flex-end;
+align-items: center;
+width: 100%;
+`
+export const CommentTextPara = styled.p`
+font-size: 12px;
+font-weight: 300;
+color: ${colors.font1};
+`

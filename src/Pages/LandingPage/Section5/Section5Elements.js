@@ -33,6 +33,7 @@ export const Section5Wrapper = styled.div`
   margin-top: 3rem;
   margin-bottom: 3rem;
 `;
+
 export const Section5HeaderWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
