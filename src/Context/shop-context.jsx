@@ -17,16 +17,13 @@ const getDefaultCart = () => {
 const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString("fa-IR");
 const formattedTime = currentDate.toLocaleTimeString("fa-IR");
-
 //-----------------------------------------------------------------------------
-
 const ShopContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
   const [isOpen4, setIsOpen4] = useState(false);
   const [isOpen5, setIsOpen5] = useState(false);
-  const [isOpen6, setIsOpen6] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem("cartItems");
@@ -39,10 +36,6 @@ const ShopContextProvider = ({ children }) => {
   const [sortOrder, setSortOrder] = useState("cheap");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProducts, setSelectedProducts] = useState([]);
-  const [formData, setFormData] = useState(() => {
-    const savedFormData = localStorage.getItem('formData');
-    return savedFormData ? JSON.parse(savedFormData) : { inputText: '', textareaText: '' };
-  });
 
   //----------------------------------------------------------------------------
   //Toggle function on click :
@@ -64,10 +57,6 @@ const ShopContextProvider = ({ children }) => {
 
   function toggle5() {
     setIsOpen5(!isOpen5);
-  }
-
-  function toggle6() {
-    setIsOpen6(!isOpen6);
   }
 
   //----------------------------------------------------------------------------
@@ -272,7 +261,6 @@ const ShopContextProvider = ({ children }) => {
   };
   
   //--------------------------------------------------------------------------
-
   const contextValue = {
     toggleHover,
     toggleHoverLeave,
@@ -316,11 +304,6 @@ const ShopContextProvider = ({ children }) => {
     toggleProductSelection,
     deleteSelectedProducts,
     deleteProductById,
-    toggle6,
-    isOpen6,
-    formData, 
-    setFormData,
-
   };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>

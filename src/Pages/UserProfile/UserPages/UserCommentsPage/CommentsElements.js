@@ -251,6 +251,7 @@ export const PopupContainer = styled.div`
   width: 100%;
   height: 659px;
   z-index: 10;
+  top: 0;
 `;
 
 export const PupupMainWrapper = styled.div`
@@ -358,7 +359,6 @@ export const CommentInput = styled.input`
   border-radius: 4px;
   padding: 0.5rem;
   text-align: right;
-
 `;
 export const CommentTextareaWrapper = styled.div`
   display: flex;
@@ -377,8 +377,6 @@ export const CommentTextarea = styled.textarea`
   border-radius: 4px;
   padding: 0.5rem;
   text-align: right;
-
-
 `;
 
 export const CommentFormSubmitBtn = styled.button`
@@ -391,41 +389,41 @@ export const CommentFormSubmitBtn = styled.button`
   border-radius: 8px;
 `;
 //----------------------------------------------------------------------
-export const CommentTextHolder= styled.div`
-display: flex;
-justify-content: flex-start;
-align-items: flex-end;
-flex-direction: column;
-width: 300px;
-min-height: 300px;
-background-color: ${colors.prime3};
-border-radius: 4px;
-position: absolute;
-top: 5rem;
-z-index: 5;
-padding: 0.5rem;
-`
+export const CommentTextHolder = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 300px;
+  min-height: 300px;
+  background-color: ${colors.prime3};
+  border-radius: 4px;
+  position: absolute;
+  top: 5rem;
+  z-index: 5;
+  padding: 0.5rem;
+`;
 
 export const CommentTextTopicWrapper = styled.div`
-display: flex;
-justify-content: flex-end;
-align-items: center;
-width: 100%;
-margin-bottom: 1rem;
-`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+`;
 export const CommentTextTopic = styled.p`
-font-size: 14px;
-font-weight: 500;
-color: ${colors.font1};
-`
+  font-size: 14px;
+  font-weight: 500;
+  color: ${colors.font1};
+`;
 export const CommentTextParaWrapper = styled.div`
-display: flex;
-justify-content: flex-end;
-align-items: center;
-width: 100%;
-`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+`;
 export const CommentTextPara = styled.p`
-font-size: 12px;
-font-weight: 300;
-color: ${colors.font1};
-`
+  font-size: 12px;
+  font-weight: 300;
+  color: ${colors.font1};
+`;

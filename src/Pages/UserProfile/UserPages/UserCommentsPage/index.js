@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   CommentsContainer,
   CommentsWrapper,
@@ -30,9 +30,11 @@ import MySearchIcon2 from "../../../../Assets/Svg/SearchIcon2.svg";
 import { UserProfileData1 } from "../../../../Helpers/UserProfileData";
 import myTrashIcon1 from "../../../../Assets/Svg/TrashIcon1.svg";
 import UserCommentComponent from "./UserCommentComponent";
-import Popup from "./Popup";
+//---------------------------------------------------------------------------
 
 const UserComments = () => {
+  const [popupMap, setPopupMap] = useState({});
+
   const {
     toggle5,
     isOpen5,
@@ -40,11 +42,19 @@ const UserComments = () => {
     filteredAndSortedProducts,
     searchQuery,
     deleteSelectedProducts,
-    isOpen6,
   } = useContext(ShopContext);
-
+ 
+  //Delete function for delete button on navbar 
   const handleDeleteAllClick = () => {
     deleteSelectedProducts();
+  };
+  
+  //Pop up function 
+  const togglePopup = (productId) => {
+    setPopupMap((prevMap) => ({
+      ...prevMap,
+      [productId]: !prevMap[productId],
+    }));
   };
 
   return (
@@ -117,11 +127,11 @@ const UserComments = () => {
                 productName={myData2.product}
                 productCategory={myData2.category}
                 productId={myData2.id}
+                isOpenPopup={popupMap[myData2.id] || false}
+                togglePopup={() => togglePopup(myData2.id)}
               />
             ))}
           </CommentComponentMainWrapper>
-          {isOpen6 && <Popup />}
-          
         </CommentsWrapper>
       </CommentsContainer>
     </>
