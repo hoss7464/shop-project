@@ -249,9 +249,15 @@ export const PopupContainer = styled.div`
   align-items: center;
   position: absolute;
   width: 100%;
-  height: 659px;
   z-index: 10;
   top: 0;
+
+  @media only screen and (min-width: 280px) and (max-width: 992px) {
+    height: 100%;
+  }
+  @media only screen and (min-width: 1080px) and (max-width: 1920px) {
+    height: 659px;
+  }
 `;
 
 export const PupupMainWrapper = styled.div`
@@ -270,8 +276,8 @@ export const PupupCloseBtnWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.5rem;
+  right: 0.5rem;
   cursor: pointer;
 `;
 
@@ -285,6 +291,15 @@ export const CommentFormContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
+  @media only screen and (min-width: 280px) and (max-width: 768px) {
+    width: 100%;
+  }
+  @media only screen and (min-width: 769px) and (max-width: 992px) {
+    width: 400px;
+  }
+  @media only screen and (min-width: 1080px) and (max-width: 1920px) {
+    width: 500px;
+  }
 `;
 
 export const CommentFormWrapper = styled.div`
@@ -297,7 +312,7 @@ export const CommentFormWrapper = styled.div`
   padding-bottom: 1rem;
   background-color: ${colors.prime3};
   border-radius: 8px;
-  width: 500px;
+  width: 100%;
 `;
 
 export const CommentNav = styled.div`
@@ -310,27 +325,32 @@ export const CommentNav = styled.div`
   margin-bottom: 1rem;
   border-bottom: solid 2px ${colors.font3};
 `;
+
 export const CommentNavTextIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
+
 export const CommentNavTextWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 0.5rem;
 `;
+
 export const CommentNavText = styled.p`
   font-size: 16px;
   font-weight: 600;
   color: ${colors.font1};
 `;
+
 export const CommentNavIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
+
 export const CommentNavIcon = styled.img`
   width: 32px;
   height: 32px;
@@ -343,6 +363,7 @@ export const MyCommentForm = styled.form`
   flex-direction: column;
   width: 100%;
 `;
+
 export const CommentInputWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -350,6 +371,7 @@ export const CommentInputWrapper = styled.div`
   width: 100%;
   margin-bottom: 1rem;
 `;
+
 export const CommentInput = styled.input`
   width: 100%;
   height: 32px;
@@ -360,6 +382,7 @@ export const CommentInput = styled.input`
   padding: 0.5rem;
   text-align: right;
 `;
+
 export const CommentTextareaWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -370,13 +393,26 @@ export const CommentTextareaWrapper = styled.div`
 
 export const CommentTextarea = styled.textarea`
   width: 100%;
-  height: 350px;
+
   border: solid 2px ${colors.font3};
   outline: none;
   background-color: inherit;
   border-radius: 4px;
   padding: 0.5rem;
   text-align: right;
+
+  @media only screen and (min-width: 280px) and (max-width: 576px) {
+    height: 200px;
+  }
+  @media only screen and (min-width: 577px) and (max-width: 768px) {
+    height: 250px;
+  }
+  @media only screen and (min-width: 769px) and (max-width: 992px) {
+    height: 300px;
+  }
+  @media only screen and (min-width: 1080px) and (max-width: 1920px) {
+    height: 350px;
+  }
 `;
 
 export const CommentFormSubmitBtn = styled.button`

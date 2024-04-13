@@ -24,6 +24,7 @@ const ShopContextProvider = ({ children }) => {
   const [isOpen3, setIsOpen3] = useState(false);
   const [isOpen4, setIsOpen4] = useState(false);
   const [isOpen5, setIsOpen5] = useState(false);
+  const [isOpen6, setIsOpen6] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem("cartItems");
@@ -57,6 +58,10 @@ const ShopContextProvider = ({ children }) => {
 
   function toggle5() {
     setIsOpen5(!isOpen5);
+  }
+
+  function toggle6() {
+    setIsOpen6(!isOpen6);
   }
 
   //----------------------------------------------------------------------------
@@ -259,7 +264,30 @@ const ShopContextProvider = ({ children }) => {
     // Update the state
     setCartItems(updatedCartItems);
   };
-  
+
+  //--------------------------------------------------------------------------
+  //Edit function in /userprofile/useraddress
+  const [paragraphs, setParagraphs] = useState({
+    paragraph1: "استان  لرستان -شهرستان خرم اباد",
+    paragraph2: "لرستان",
+    paragraph3: "65144-73132",
+    paragraph4: "حسین فتح الهی",
+    paragraph5: "فتح الهی",
+  });
+
+  const addressHandleChange = (e) => {
+    const { name, value } = e.target;
+    setParagraphs({
+      ...paragraphs,
+      [name]: value,
+    });
+  };
+
+  const handleApplyEdits = (e) => {
+    e.preventDefault();
+
+  };
+
   //--------------------------------------------------------------------------
   const contextValue = {
     toggleHover,
@@ -304,6 +332,11 @@ const ShopContextProvider = ({ children }) => {
     toggleProductSelection,
     deleteSelectedProducts,
     deleteProductById,
+    toggle6,
+    isOpen6,
+    paragraphs,
+    addressHandleChange,
+    handleApplyEdits,
   };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>

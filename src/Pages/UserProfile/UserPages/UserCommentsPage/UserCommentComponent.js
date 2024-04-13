@@ -181,7 +181,7 @@ const UserCommentComponent = ({
                       onChange={(e) => setTextareaText(e.target.value)}
                     />
                   </CommentTextareaWrapper>
-                  <CommentFormSubmitBtn>ارسال</CommentFormSubmitBtn>
+                  <CommentFormSubmitBtn type="submit" >ارسال</CommentFormSubmitBtn>
                 </MyCommentForm>
               </CommentFormWrapper>
             </CommentFormContainer>
