@@ -45,6 +45,14 @@ const Navbar = () => {
   //---------------------------------------------
   if (
     location.pathname === "/admindashboard" ||
+    location.pathname === "/admindashboard/" ||
+    location.pathname === "/admindashboard/adminhome" ||
+    location.pathname === "/admindashboard/adminclientinfo" ||
+    location.pathname === "/admindashboard/adminclientauth" ||
+    location.pathname === "/admindashboard/adminproduct" ||
+    location.pathname === "/admindashboard/admintransaction" ||
+    location.pathname === "/admindashboard/adminport" ||
+    location.pathname === "/admindashboard/adminservice" ||
     location.pathname === "/userprofile" ||
     location.pathname === "/userprofile/" ||
     location.pathname === "/userprofile/userprofile" ||
