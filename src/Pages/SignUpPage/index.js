@@ -61,7 +61,7 @@ const SignUpPage = () => {
       alert("check your email for verification link");
       onSubmitProps.setSubmitting(false);
       onSubmitProps.resetForm();
-      navigate("/signin");
+      navigate("/SignIn");
     } catch (error) {
       alert(error);
     }
@@ -136,7 +136,7 @@ const SignUpPage = () => {
                   <SignupLinkWrapper>
                     <p>
                       {SignUpData1.text3}
-                      <SignupLink to="/signin">{SignUpData1.text4}</SignupLink>
+                      <SignupLink to="/SignIn">{SignUpData1.text4}</SignupLink>
                     </p>
                   </SignupLinkWrapper>
                 </Form>

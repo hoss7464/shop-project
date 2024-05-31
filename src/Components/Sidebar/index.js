@@ -28,9 +28,9 @@ function Sidebar() {
             </SideLink>
             <SideLink
               onClick={toggle}
-              to="/signin"
+              to="/SignIn"
               className={
-                Location.pathname === "/signin" ? "active-color" : null
+                Location.pathname === "/SignIn" ? "active-color" : null
               }
             >
               {SidebarData1.text2}

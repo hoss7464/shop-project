@@ -6,7 +6,7 @@ import LandingPage from "./Pages/LandingPage";
 import Production from "./Pages/ProductionPage";
 import AdminDashboard from "./Pages/AdminDashboard";
 import UserProfile from "./Pages/UserProfile";
-import SignIn from "./Pages/SignInPage";
+import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUpPage";
 import ForgetPass from "./Pages/ForgetPassPage";
 import ResetPass from "./Pages/ResetPassword";
@@ -53,7 +53,7 @@ function App() {
           <Route path="/production/:productId" element={<ProductDetails />} />
           <Route path="/productdetails" element={<ProductDetails />} />
           <Route path="/productdetails/:productId" element={<ProductDetails />}/>
-          <Route path="/signin" element={<SignIn setToken={setToken} />} />
+          <Route path="/SignIn" element={<SignIn setToken={setToken} />} />
           <Route path="/signup" element={<SignUp />} />
           
           <Route path="/admindashboard" element={<AdminDashboard setToken={setToken} />}>

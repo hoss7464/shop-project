@@ -129,7 +129,7 @@ const Navbar = () => {
                 <LinkIcon alt={Data1.text6} src={MySignUp} />
               </LinkIconWrapper>
             </MyLink>
-            <MyLink to="/signin">
+            <MyLink to="/SignIn">
               <LinkTextWrapper>
                 <LinkText>{Data1.text2}</LinkText>
               </LinkTextWrapper>
