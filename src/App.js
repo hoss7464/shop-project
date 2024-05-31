@@ -43,7 +43,7 @@ function App() {
   }, []);
   return (
     <>
-      <Router>
+      <Router >
         <ScrollToTop />
         <Sidebar />
         <Navbar />
@@ -74,9 +74,6 @@ function App() {
             <Route path="useraccount" element={<UserAccount />} />
           </Route> 
           
-           
-          
-
           <Route path="/forgetpassword" element={<ForgetPass />} />
           <Route path="/resetPass" element={<ResetPass />} />
           <Route path="/purchase" element={<Purchase />} />
